@@ -1,10 +1,8 @@
-## 🧐 모던 자바스크립트 북클럽 💬
+##  모던 자바스크립트 🧩
 
 ---
 
-<p style="display: flex; justifycontent: center; align-item: center;">
-<img src="./read_src/client_img/JS 딥 다이브 스터디 표지.png" width="500"/>
-</p>
+![image](https://user-images.githubusercontent.com/76567238/204139061-a7735816-bc1e-4eae-991a-1a67e39b91e2.png)
 
 ---
 
