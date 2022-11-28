@@ -64,8 +64,8 @@
 
 
 
-| 이름 |Day1 | Day2|Day3|Day4 | Day5 | Day6 |Day7| Day8|Day9 |Day10|Day11| Day12|
-| - | - | - | -| - | -| - | - | - | -| - | - | - | 
+| 이름 |Day1 | Day2|Day3|Day4 | Day5 | Day6 |Day7| Day8|Day9 |Day10|Day11|
+| - | - | - | -| - | -| - | - | - | -| - | - |
 | <center>[강철원](https://github.com/Ryan-dia)</center> ||
 | <center>[김민선](https://github.com/menduck)</center> ||
 | <center>[김예찬](https://github.com/nerdchanii)</center> ||
