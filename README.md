@@ -80,5 +80,5 @@
 | <center>[이영우](https://github.com/Everylisy)</center> ||
 | <center>[이지연](https://github.com/jinlee9270)</center> ||
 | <center>[지유진](https://github.com/YujinJI)</center> ||
-| <center>[](https://github.com/)</center> ||
-| <center>[](https://github.com/)</center> ||
+| <center>[황성택](https://github.com/6uamy)</center> ||
+| <center>[박준서](https://github.com/blan19)</center> ||
