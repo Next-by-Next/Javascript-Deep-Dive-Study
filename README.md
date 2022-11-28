@@ -55,3 +55,27 @@
  15.1 ~ 15.6 (TIL)  | 16.1 ~ 16.5 (TIL) | 17.1 ~ 17.2 (TIL) | 
 
 ---
+
+
+##  📚북 스터디 참여하시는 분들
+
+---
+
+| 이름 |  한 줄 목표  | 
+| ---- | ----------- | 
+| <center>[강철원](https://github.com/Ryan-dia)</center> ||
+| <center>[김민선](https://github.com/menduck)</center> ||
+| <center>[김예찬](https://github.com/nerdchanii)</center> ||
+| <center>[박노준](https://github.com/circlewee)</center> ||
+| <center>[송지은](https://github.com/hafnium1923)</center> ||
+| <center>[신승현](https://github.com/osdoonhyun)</center> ||
+| <center>[신혜리](https://github.com/rachel490)</center> ||
+| <center>[안예림](https://github.com/yesolyo)</center> ||
+| <center>[유은지](https://github.com/y00eunji)</center> ||
+| <center>[유지수](https://github.com/youzysu)</center> ||
+| <center>[신장](https://github.com/Bori-github)</center> ||
+| <center>[욘스](https://github.com/Everylisy)</center> ||
+| <center>[이음](https://github.com/jinlee9270)</center> ||
+| <center>[제로](https://github.com/YujinJI)</center> ||
+| <center>[](https://github.com/)</center> ||
+| <center>[](https://github.com/)</center> ||
