@@ -60,7 +60,7 @@
       
 <br></br>
 
-##  📚북 스터디 참여하시는 분들
+##  📚북 스터디 참여하시는 분들 ( 17 명 )
 
 
 
@@ -82,3 +82,4 @@
 | <center>[지유진](https://github.com/YujinJI)</center> ||
 | <center>[황성택](https://github.com/6uamy)</center> ||
 | <center>[박준서](https://github.com/blan19)</center> ||
+| <center>[전수빈](https://github.com/SoobinJ)</center> ||
