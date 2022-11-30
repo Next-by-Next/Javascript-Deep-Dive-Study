@@ -15,11 +15,11 @@
 
 개발자가 직접 메모리 주소를 통해 값을 저장하고 참조한다면 이미지 #1처럼 해당 메모리 주소를 알아야하고 참조하고 값을 할당하는 과정까지 포함하면 복잡하고 불편하기 때문에 실수가 많이 발생할 수 있다. 하지만, 변수를 활용한다면 간편하고 실수 없이 안전하게 접근이 가능해진다.
 
-이미지 #1
-
-<div align="center">
-<img src = "./image/memory_address.png" width="300" height="300"/>
-</div>
+> 이미지 #1
+>
+> <div align="center">
+> <img src = "./image/memory_address.png" width="300" height="300"/>
+> </div>
 
 이러한 변수를 활용하는 방법을 알아보자.
 
@@ -43,12 +43,12 @@ let result = 10 + 20;
 
 이처럼 메모리 공간에 저장된 값을 식별할 수 있는 고유한 이름(result)을 변수 이름(변수명)이라 하며, 이 변수에 저장된 값(30)을 변수 값이라 한다. result에 30을 저장하는 것을 할당(대입, 저장)(assignment)이라 하고, 이 값을 읽어 들이는 것을 참조(reference)라 한다.
 
-이미지 #2
-
-<div align="center">
-<img src = "./image/variable_in_memory.png" width="380" height="250"/>
-</div>
-<br>
+> 이미지 #2
+>
+> <div align="center">
+> <img src = "./image/variable_in_memory.png" width="380" height="250"/>
+> </div>
+> <br>
 
 ## 4.2 식별자
 
@@ -70,13 +70,13 @@ Javascript는 변수, 함수, 클래스 등의 이름과 같은 식별자를 선
 
 ## 4.3 변수 선언
 
-#### 변수 선언하기
+#### 변수 선언하는 방법
 
 변수 선언(variable declaration)은 변수를 생성하는 것이다.
 
 변수를 사용하기 위해서는 해당 변수를 선언해야하며, 선언 방법은 변수 앞에 var, let, const 키워드를 사용하는 것이다.
 
-> 키워드란? Javascript가 수행할 동작을 규정한 명령어이다.
+> 키워드? Javascript가 수행할 동작을 규정한 명령어
 
 ```
 let score;
@@ -84,8 +84,24 @@ let score;
 
 위 변수 선언문은 이미지 #3과 같이 변수 이름을 등록하고 값을 저장할 메모리 공간을 확보한다.
 
-이미지 #3
+> 이미지 #3
+>
+> <div align="center">
+> <img src = "./image/variable_declaration.png" width="290" height="300"/>
+> </div>
 
-<div align="center">
-<img src = "./image/variable_in_memory.png" width="380" height="250"/>
-</div>
+아직 변수(score)에 값을 할당하지 않았지만 해당 메모리 공간은 비어있지 않고 이미지 #3에서처럼 undefined라는 값이 할당되어 있다.
+
+> undefined? Javascript에서 제공하는 원시 타입의 값(primitive value)
+
+Javascript에서는 변수를 선언하면 Javascript 엔진이 이름을 등록해서 변수의 존재를 알아내는 선언 단계를 거쳐, 메모리 공간을 확보하고 undefined를 할당하여 초기화하는 초기화 단계를 거친다.
+
+이 초기화 단계가 없다면 이전 애플리케이션에서 사용하던 메모리 공간에 남아있는 값(쓰레기 값)(garbage value)이 남아있어 예상치 못한 오류를 범할 수 있다.
+
+#### 선언하지 않은 변수는?
+
+변수를 선언하지 않는다면 당연히 해당 변수를 사용(참조)할 수 없다.
+
+그럼에도 선언하지 않은 식별자에 접근하면 참조 에러(ReferenceError)가 발생한다.
+
+이는 Javascript 엔진이 등록된 식별자를 찾을 수 없다는 의미로, 해당 변수를 선언하거나, 참조해서는 안 되는 것이다.
