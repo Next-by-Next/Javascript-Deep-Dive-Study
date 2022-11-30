@@ -16,7 +16,7 @@
 개발자가 직접 메모리 주소를 통해 값을 저장하고 참조한다면 아래 이미지처럼 해당 메모리 주소를 알아야하고 참조하고 값을 할당하는 과정까지 포함하면 복잡하고 불편하기 때문에 실수가 많이 발생할 수 있다. 하지만, 변수를 활용한다면 간편하고 실수 없이 안전하게 접근이 가능해진다.
 
 <div align="center">
-  <img src = "./memory_address.png" width="300" height="300"/>
+  <img src = "./image/memory_address.png" width="300" height="300"/>
 </div>
 
 이러한 변수를 활용하는 방법을 알아보자.
@@ -42,5 +42,5 @@ let result = 10 + 20;
 이처럼 메모리 공간에 저장된 값을 식별할 수 있는 고유한 이름(result)을 변수 이름(변수명)이라 하며, 이 변수에 저장된 값(30)을 변수 값이라 한다. result에 30을 저장하는 것을 할당(대입, 저장)이라 하고, 이 값을 읽어 들이는 것을 참조라한다.
 
 <div align="center">
-  <img src = "./variable_in_memory.png" width="350" height="320"/>
+  <img src = "./image/variable_in_memory.png" width="350" height="320"/>
 </div>
