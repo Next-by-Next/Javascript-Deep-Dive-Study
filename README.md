@@ -69,13 +69,13 @@
 | <center>[강철원](https://github.com/Ryan-dia)</center> |✅|
 | <center>[김나연](https://github.com/kknyapple)</center> ||
 | <center>[김동영](https://github.com/ehddud1006)</center> ||
-| <center>[김민선](https://github.com/menduck)</center> ||
+| <center>[김민선](https://github.com/menduck)</center> |✅|
 | <center>[김예찬](https://github.com/nerdchanii)</center> ||
 | <center>[김의천](https://github.com/wzrabbit)</center> |✅|
 | <center>[김태환](https://github.com/taehwan01)</center> ||
 | <center>[박노준](https://github.com/circlewee)</center> |✅|
 | <center>[박준서](https://github.com/blan19)</center> |✅|
-| <center>[송지은](https://github.com/hafnium1923)</center> ||
+| <center>[송지은](https://github.com/hafnium1923)</center> |✅|
 | <center>[신승현](https://github.com/osdoonhyun)</center> ||
 | <center>[신혜리](https://github.com/rachel490)</center> ||
 | <center>[안예림](https://github.com/yesolyo)</center> |✅|
