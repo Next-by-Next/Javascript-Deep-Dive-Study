@@ -85,7 +85,7 @@
 | <center>[이영우](https://github.com/Everylisy)</center> ||
 | <center>[이지연](https://github.com/jinlee9270)</center> ||
 | <center>[전수빈](https://github.com/SoobinJ)</center> ||
-| <center>[지유진](https://github.com/YujinJI)</center> ||
+| <center>[지유진](https://github.com/YujinJI)</center> |✅|
 | <center>[황성택](https://github.com/6uamy)</center> |✅|
 
 
