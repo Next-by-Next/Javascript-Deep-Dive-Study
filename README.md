@@ -76,14 +76,14 @@
 | <center>[박노준](https://github.com/circlewee)</center> |✅|
 | <center>[박준서](https://github.com/blan19)</center> |✅|
 | <center>[송지은](https://github.com/hafnium1923)</center> |✅|
-| <center>[신승현](https://github.com/osdoonhyun)</center> |✅|
+| <center>[신승현](https://github.com/osdoonhyun)</center> ||
 | <center>[신혜리](https://github.com/rachel490)</center> |✅|
 | <center>[안예림](https://github.com/yesolyo)</center> |✅|
 | <center>[유은지](https://github.com/y00eunji)</center> |✅|
 | <center>[유지수](https://github.com/youzysu)</center> |✅|
 | <center>[이보리](https://github.com/Bori-github)</center> |✅|
 | <center>[이영우](https://github.com/Everylisy)</center> |✅|
-| <center>[이지연](https://github.com/jinlee9270)</center> ||
+| <center>[이지연](https://github.com/jinlee9270)</center> |✅|
 | <center>[전수빈](https://github.com/SoobinJ)</center> |✅|
 | <center>[지유진](https://github.com/YujinJI)</center> |✅|
 | <center>[황성택](https://github.com/6uamy)</center> |✅|
