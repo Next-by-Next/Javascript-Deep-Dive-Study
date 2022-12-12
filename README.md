@@ -87,5 +87,5 @@
 | <center>[전수빈](https://github.com/SoobinJ)</center> |✅|✅|✅|
 | <center>[지유진](https://github.com/YujinJI)</center> |✅|✅|✅|✅|✅|✅|
 | <center>[황성택](https://github.com/6uamy)</center> |✅|✅|✅|✅|✅|
-||19명|17명|15명|8명|13명|
+||19명|17명|15명|8명|13명|8명|
 
