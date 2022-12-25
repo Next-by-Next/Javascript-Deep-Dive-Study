@@ -64,8 +64,8 @@
 
 
 
-| 이름 |Day1 | Day2|Day3|Day4 | Day5 | Day6 |Day7| Day8,9,10|Day11|Day12|Day13|
-| - | :-: | :-: | :-:| :-:| :-:| :-: | :-: | :-: | :-:| :-:| :-:|
+| 이름 |Day1 | Day2|Day3|Day4 | Day5 | Day6 |Day7| Day8,9,10|Day11|Day12|
+| - | :-: | :-: | :-:| :-:| :-:| :-: | :-: | :-: | :-:| :-:|
 | <center>[강철원🏆](https://github.com/Ryan-dia)</center> |✅|✅|✅|✅|✅|✅|✅|✅|✅|
 | <center>[김나연🏆](https://github.com/kknyapple)</center> |✅|✅|✅|✅|✅|✅|✅|✅||
 | <center>[김동영](https://github.com/ehddud1006)</center> ||
