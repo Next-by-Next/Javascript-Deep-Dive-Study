@@ -169,4 +169,5 @@
 | [강인영](https://github.com/inyeong-kang) | ✅|
 | [김유권](https://github.com/ukkodeveloper)| ✅|
 | [채희수](https://github.com/chee9835)| ✅|
-| 이지연 | 
+| [이지연](https://github.com/jinlee9270) | 
+| | 9명|
