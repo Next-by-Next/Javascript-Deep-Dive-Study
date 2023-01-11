@@ -164,15 +164,15 @@
 ##  📚북 스터디 함께하시는 분들 Part 2 ( 11 명 )
 | 이름 |Day1 | Day2|Day3| Day4 | Day5 | Day6 | Day7 | Day8 |Day9 |Day10 |Day11 |
 | --- | :-: | :-: | :-:| :---:| :---:| :--: | :--: | :--: | :--: |:--: |:--: |
+| [강인영](https://github.com/inyeong-kang) | ✅||✅|
 | [강철원](https://github.com/Ryan-dia) | ✅|✅|✅|
 | [김나연](https://github.com/kknyapple) |||✅| 
-| [김민선](https://github.com/menduck) | ✅|✅|✅|
+| [김민선](https://github.com/menduck) | ✅|✅||
 | [신승현](https://github.com/osdoonhyun) | ✅|
 | [박노준](https://github.com/circlewee) | ✅||✅|
 | [이보리](https://github.com/Bori-github) | ✅|✅|✅|
-| [지유진](https://github.com/YujinJI)| ✅|✅|✅|
-| [강인영](https://github.com/inyeong-kang) | ✅||✅|
+| [지유진](https://github.com/YujinJI)| ✅|✅|✅| 
 | [김유권](https://github.com/ukkodeveloper)| ✅|
 | [채희수](https://github.com/chee9835)| ✅|✅|✅|
 | [이지연](https://github.com/jinlee9270) | 
-| | 9명| 5명| 8명 | 
+| | 9명| 5명| 7명 | 
