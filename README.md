@@ -167,12 +167,12 @@
 | [강인영](https://github.com/inyeong-kang) | ✅||✅|
 | [강철원](https://github.com/Ryan-dia) | ✅|✅|✅|
 | [김나연](https://github.com/kknyapple) |||✅| 
-| [김민선](https://github.com/menduck) | ✅|✅||
+| [김민선](https://github.com/menduck) | ✅|✅|✅|
 | [신승현](https://github.com/osdoonhyun) | ✅|
 | [박노준](https://github.com/circlewee) | ✅||✅|
 | [이보리](https://github.com/Bori-github) | ✅|✅|✅|
 | [지유진](https://github.com/YujinJI)| ✅|✅|✅| 
 | [김유권](https://github.com/ukkodeveloper)| ✅|
 | [채희수](https://github.com/chee9835)| ✅|✅|✅|
-| [이지연](https://github.com/jinlee9270) | 
-| | 9명| 5명| 7명 | 
+| [이지연](https://github.com/jinlee9270) | ||✅|
+| | 9명| 5명| 9명 | 
