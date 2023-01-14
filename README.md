@@ -2,6 +2,9 @@
 
 ---
 
+###  ✅ part 1 ( 11 / 30 ~ 12 / 31 ) 
+###  🏇 part 2 ( 01 / 03 ~ 02 / 03 ) 
+
 ![image](https://user-images.githubusercontent.com/76567238/204139061-a7735816-bc1e-4eae-991a-1a67e39b91e2.png)
 
 ---
@@ -106,6 +109,8 @@
 
 ##  📕 part 2 
 
+> 총기간 1/3 ~ 2/3
+
 > 함수와 일급 객체 / 프로토타입 / strict mode / 빌트인 객체 / this / 실행 컨텍스트 / 클로저 / 클래스 / ES6 함수의 추가 기능 | 
 
 > **1주차**  ( 1 / 3 ~ 1 / 7 )
@@ -156,16 +161,20 @@
 
 <br></br>
 
-##  📚북 스터디 함께하시는 분들 Part 2 ( 10 명 )
+##  📚북 스터디 함께하시는 분들 Part 2 ( 11 명 )
 | 이름 |Day1 | Day2|Day3| Day4 | Day5 | Day6 | Day7 | Day8 |Day9 |Day10 |Day11 |
 | --- | :-: | :-: | :-:| :---:| :---:| :--: | :--: | :--: | :--: |:--: |:--: |
-| [강철원](https://github.com/Ryan-dia) |
-| [김나연](https://github.com/kknyapple) |
-| [김민선](https://github.com/menduck) |
-| [신승현](https://github.com/osdoonhyun) |
-| [박노준](https://github.com/circlewee) |
-| [이보리](https://github.com/Bori-github) |
-| [지유진](https://github.com/YujinJI)|
-| [강인영](https://github.com/inyeong-kang) |
-| [김유권](https://github.com/ukkodeveloper)|
-| [채희수](https://github.com/chee9835)| 
+| [강인영](https://github.com/inyeong-kang) | ✅||✅|✅|✅|
+| [강철원](https://github.com/Ryan-dia) | ✅|✅|✅|✅|✅|
+| [김나연](https://github.com/kknyapple) |||✅|✅|✅|
+| [김민선](https://github.com/menduck) | ✅|✅|✅|✅|✅|
+| [신승현](https://github.com/osdoonhyun) | ✅||❗️|❗️|
+| [박노준](https://github.com/circlewee) | ✅||✅|✅|✅|
+| [이보리](https://github.com/Bori-github) | ✅|✅|✅|✅|
+| [지유진](https://github.com/YujinJI)| ✅|✅|✅|✅| ✅|
+| [김유권](https://github.com/ukkodeveloper)| ✅|
+| [채희수](https://github.com/chee9835)| ✅|✅|✅|✅|✅|
+| [이지연](https://github.com/jinlee9270) | ||✅|✅|✅|
+| | 9명| 5명| 9명 | 9명| 8명|
+
+---
