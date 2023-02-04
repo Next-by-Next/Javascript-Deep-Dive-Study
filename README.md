@@ -6,9 +6,25 @@
 ###  📌 [part 2](#-part-2) ( 01 / 03 ~ 02 / 03 ) ✅[ 체크리스트](#북-스터디-함께하시는-분들-part-2--11-명-)
 ###  🛠️ [part 3](#-part-3) ( 02 / 08 ~ 03 / 11 ) ✅[ 체크리스트](#북-스터디-함께하시는-분들-part-3---명)
 
+---
+
+### 📚 [공부한 내용 보러가기→](https://github.com/woowacourse-pre/Javascript-Deep-Dive-Study/tree/main/docs)
+
 ![image](https://user-images.githubusercontent.com/76567238/204139061-a7735816-bc1e-4eae-991a-1a67e39b91e2.png)
 
 ---
+
+### 👨‍👨‍👦‍👦 Contributors 
+   
+<br>
+
+[![contributors](https://contrib.rocks/image?repo=woowacourse-pre/Javascript-Deep-Dive-Study)](https://github.com/woowacourse-pre/Javascript-Deep-Dive-Study/graphs/contributors)
+
+
+<br>
+
+---
+
 
 #  📕 part 1
 
