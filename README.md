@@ -299,13 +299,21 @@
 <br>
 
 
-##  📚북 스터디 함께하시는 분들 Part 3 ( ?? 명)
+##  📚북 스터디 함께하시는 분들 Part 3 ( 8명)
 
 
 | 　　\　Day<br>이름　\ |1|2|3| 4 |5|6 | 7| 8| 9 | 10|11|12 | 14| 15|16|
 | :-----------------|-|-| -| -| -| -| -| -| - | - |- |-- | - | - |- |
-|     |
-|     |
+| [강인영](https://github.com/inyeong-kang) |
+| [강철원](https://github.com/Ryan-dia) | 
+| [김민선](https://github.com/menduck) | 
+| [박노준](https://github.com/circlewee) |
+| [신승현](https://github.com/osdoonhyun) | 
+| [이보리](https://github.com/Bori-github) | 
+| [지유진](https://github.com/YujinJI)|
+| [채희수](https://github.com/chee9835)| 
+| [김나연](https://github.com/kknyapple) ||
+| | 
 
 
 ---
