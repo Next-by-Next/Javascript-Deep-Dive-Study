@@ -314,7 +314,7 @@
 | [채희수](https://github.com/chee9835)     |✅|✅|  
 | [김나연](https://github.com/kknyapple)    |✅|✅| 
 | [오지민](https://github.com/TrendCatcher) |  |❗|
-|                                         |8명|9명|
+|                                         |8명|10명|
 
 
 ---
