@@ -316,6 +316,19 @@
 | [오지민  ](https://github.com/TrendCatcher) |  |❗|❗|❗|
 |                                         |8명|10명|9명|9명|7명|8명|6명|6명|5명|6명|6명|6명|5명|6명|
 
+| 　　\　Day<br>이름　\ |                      15| 16 |17 | 18 | 보충 day1 | 보충 day2 | 보충 day3 | 보충 day4 | 보충 day5|
+| :---------------------------------------|- |- | -| - | -  |-  |-  |-  | - |
+| [강인영🏆](https://github.com/inyeong-kang) |✅|✅|
+| [강철원🏆](https://github.com/Ryan-dia)     |✅|✅| 
+| [박노준🏆](https://github.com/circlewee)    |✅|✅|
+| [이보리🏆](https://github.com/Bori-github)  |✅|✅| 
+| [지유진🏆](https://github.com/YujinJI)      |✅|  |
+| [채희수🏆](https://github.com/chee9835)     |✅|✅|
+| [신승현  ](https://github.com/osdoonhyun)   |
+| [김민선  ](https://github.com/menduck)      |
+| [김나연  ](https://github.com/kknyapple)    |
+| [오지민  ](https://github.com/TrendCatcher) | 
+|                                         |6명|5명|
 
 ---
 
