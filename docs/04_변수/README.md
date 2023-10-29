@@ -11,5 +11,5 @@
 ### 🥎 season 1
 
 - [이보리](https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/blob/main/docs/05_%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC%20%EB%AC%B8/%EC%9D%B4%EB%B3%B4%EB%A6%AC.md)
-- ⭐️ [김의천](https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/blob/main/docs/05_%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC%20%EB%AC%B8/%EC%9D%B4%EB%B3%B4%EB%A6%AC.md)
+- [김의천](https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/blob/main/docs/05_%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC%20%EB%AC%B8/%EC%9D%B4%EB%B3%B4%EB%A6%AC.md) ⭐️
 - [지유진](https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/blob/main/docs/05_%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC%20%EB%AC%B8/%EC%A7%80%EC%9C%A0%EC%A7%84.md)
