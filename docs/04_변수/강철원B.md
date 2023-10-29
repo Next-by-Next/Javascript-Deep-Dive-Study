@@ -77,7 +77,8 @@ var $elem = document.getElementById('myId'); // DOM 노드
 
 ## 한 걸음 더 
 4장 변수는 메모리에 대한 이야기가 많이 나옵니다. 사실 이 단원에서 가장중요한 내용이기도 합니다. 반드시 값이 어떻게 저장되고 메모리가 어떤식으로 할당되는지 이해하셔야 나중에 '11장 원시값과 객체의 비교'도 이해하기가 쉽고 왜 얕은 복사 또는 깊은 복사를 이해하기가 쉽습니다.  
-더 명확하게 이해하고 싶다면 아래 영상 추천드립니다. 
-[모두를 위한 컴퓨터 과학 cs50 2019](https://www.boostcourse.org/cs112/lecture/119027?isDesc=false)
-[cs50 2023 Lecture 4 - Memory](https://www.youtube.com/watch?v=AcWIE9qazLI&t=118s)
+더 명확하게 이해하고 싶다면 아래 영상 추천드립니다.    
+   
+- [모두를 위한 컴퓨터 과학 cs50 2019](https://www.boostcourse.org/cs112/lecture/119027?isDesc=false)   
+- [cs50 2023 Lecture 4 - Memory](https://www.youtube.com/watch?v=AcWIE9qazLI&t=118s)
 
