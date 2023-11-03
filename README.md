@@ -106,9 +106,9 @@
 | <center>[김다은](https://github.com/)</center>            |✅|    |✅|  ✅|
 | <center>[김영동](https://github.com/)</center>            |✅|   ✅|✅| ✅|
 | <center>[김은지](https://github.com/)</center>            |✅|   ✅|✅| ✅|
-| <center>[고세종](https://github.com/)</center>            |✅|   ✅|✅|   |
+| <center>[고세종](https://github.com/)</center>            |✅|   ✅|✅| ✅|
 | <center>[나세현](https://github.com/)</center>            |✅|   ✅|✅| ✅|
-| <center>[문소희](https://github.com/)</center>            |✅|   ✅|✅|   |
+| <center>[문소희](https://github.com/)</center>            |✅|   ✅|✅| ✅|
 | <center>[박찬용](https://github.com/)</center>            |✅|   ✅|✅| ✅|
 | <center>[심채윤](https://github.com/)</center>            |✅|     |✅| ✅|
 | <center>[임수빈](https://github.com/)</center>            |✅|   ✅|✅| ✅|
@@ -117,9 +117,10 @@
 | <center>[윤예빈](https://github.com/)</center>            |✅|   ✅|✅| ✅|
 | <center>[장서윤](https://github.com/)</center>            |✅|   ✅|✅| ✅|
 | <center>[최주용](https://github.com/)</center>            |✅|   ✅|✅| ✅|
-| <center>[한수지](https://github.com/)</center>            |✅|   ✅|✅|   |
+| <center>[최수환](https://github.com/)</center>            |✅|   ✅|  | ✅|
+| <center>[한수지](https://github.com/)</center>            |✅|   ✅|✅| ✅|
 ||
-|     <center>제출</center>                                 |18|15|18|??|
+|     <center>제출</center>                                 |19|16|18|19|
 
 <br>
 
