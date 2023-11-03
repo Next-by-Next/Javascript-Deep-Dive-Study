@@ -110,7 +110,7 @@
 | <center>[나세현](https://github.com/)</center>            |✅|   ✅|✅| ✅|
 | <center>[문소희](https://github.com/)</center>            |✅|   ✅|✅| ✅|
 | <center>[박찬용](https://github.com/)</center>            |✅|   ✅|✅| ✅|
-| <center>[박찬용](https://github.com/)</center>            |✅|    |✅| ✅|
+| <center>[변지인](https://github.com/)</center>            |✅|    |✅| ✅|
 | <center>[심채윤](https://github.com/)</center>            |✅|     |✅| ✅|
 | <center>[임수빈](https://github.com/)</center>            |✅|   ✅|✅| ✅|
 | <center>[이나린](https://github.com/)</center>            |✅|   ✅|✅| ✅|
