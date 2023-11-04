@@ -9,6 +9,12 @@
 [3. 비교 연산자](#3-비교-연산자)   
 [4. 삼항 조건 연산자](#4-삼항-조건-연산자)   
 [5. 논리 연산자](#5-논리-연산자)   
+[6. 쉼표 연산자](#6-쉼표-연산자)   
+[7. typeof 연산자](#7-typeof-연산자)   
+[8. 지수 연산자](#8-지수-연산자)   
+[9. 그 외의 연산자](#9-그-외의-연산자)   
+[10. 연산자 우선순위](#10-연산자-우선순위)   
+[11. 연산자 결합 순서](#11-연산자-결합-순서)   
 
 <br>
 
@@ -238,3 +244,68 @@ console.log(result); // 짝수
 // 단축 평가
 'Cat' && 'Dog' // Dog
 ```
+
+## 6. 쉼표 연산자
+쉼표연산자는 왼쪽 피연산자부터 차례대로 피연산자를 평가하고 마지막 피연산자의 평가가 끝나면 마지막 피연산자의 평가 결과를 반환한다.
+```js
+var x, y, z;
+
+x = 1, y = 2, z = 3; // 3
+```
+
+## 7. typeof 연산자
+typeof 연산자는 피연산자의 데이터 타입을 문자열로 반환한다.    
+`null`을 반환하는 경우는 없으며, 함수의 경우 'function'을 반환한다.   
+```js
+typeof ''         // string
+typeof 1         // number
+typeof NaN       // number
+typeof undefined // undefined
+typeof null      // object
+typeof []        // object
+typeof /test/gi  // object
+typeof function () {} // function
+```
+**값이 null 타입인지 확인할 때는 typeof 연산자를 사용하지 말고 일치 연산자(===)를 사용하자.
+```js
+var foo = null;
+
+typeof foo === null;  // false
+foo === null;         // true
+```
+
+또 하나 주의해할 것은 선언하지 않은 식별자를 `typeof`연산자로 연산해 보면 ReferenceError가 발생하지 않고 `undefined`를 반환한다.    
+```js
+// undeclared 식별자를 선언한 적이 없다.
+typeof undeclared; // undefined
+```
+## 8. 지수 연산자
+음수를 거듭제곱의 밑으로 사용해 계산하려면 다음과 같이 괄호로 묶어야 한다.
+```js
+(-5) ** 2; // 25
+```
+>지수 연산자는 다른 산술 연산자와 마찬가지로 할당 연산자와 함께 사용할 수 있다.
+```js
+var num = 5;
+num **= 2; // 25
+```
+
+>지수 연산자는 이항 연산자 중에서 우선순위가 가장 높다.
+```js
+2 * 5 ** 2; // 50
+```
+
+## 9. 그 외의 연산자
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/793eb382-0863-4722-b725-e82e08e683a1)
+
+
+## 10. 연산자 우선순위
+연산자 우선순위란 여러 개의 연산자로 이뤄진 문이 실행될 때 연산자가 실행되는 순서를 말한다.
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/9d05676e-8ea6-4b8f-8968-44041177bf71)
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/abbda10a-0146-46ef-bb1e-b5a580564c06)
+
+## 11. 연산자 결합 순서
+연산자 결합 순서란 연산자의 어느 쪽(좌항 또는 우항)부터 평가를 수행할 것인지를 나타내는 순서를 말한다.
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/0bde3a4f-32e5-40c7-91af-ffc274525726)
+
