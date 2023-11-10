@@ -106,27 +106,27 @@
 
 | 　　\　Day<br>이름　\  |1 | 2|3|4 | 5 | 6 |7|9|10|11|12|13|
 | :- | :-: | :-: | :-:| :-:| :-:| :-: | :-: | :-: |  :-:|:-:|:-:|:-:|
-| <center>[강철원](https://github.com/Ryan-dia)🏆</center>    |✅|  ✅|✅|  ✅|✅|✅|✅|✅|✅|
-| <center>[강성욱](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
-| <center>[김경주](https://github.com/)🏆</center>            |✅|    |✅|  ✅|✅|✅|✅|✅|✅|
-| <center>[고세종](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
-| <center>[나세현](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
+| <center>[강철원](https://github.com/Ryan-dia)🏆</center>    |✅|  ✅|✅|  ✅|✅|✅|✅|✅|✅|✅|
+| <center>[강성욱](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
+| <center>[김경주](https://github.com/)🏆</center>            |✅|    |✅|  ✅|✅|✅|✅|✅|✅|✅|
+| <center>[고세종](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
+| <center>[나세현](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
 | <center>[문소희](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
-| <center>[심채윤](https://github.com/)🏆</center>            |✅|     |✅| ✅|✅|✅|✅|✅|✅|
-| <center>[임수빈](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
-| <center>[이나린](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
-| <center>[오명석](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
-| <center>[윤예빈](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
-| <center>[장서윤](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
-| <center>[최주용](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
-| <center>[변지인](https://github.com/)</center>            |✅|     |✅| ✅|✅|✅|✅| |✅|
-| <center>[김은지](https://github.com/)</center>            |✅|   ✅|✅| ✅|  |✅|✅| |✅|
-| <center>[최수환](https://github.com/)</center>            |✅|   ✅|  | ✅|✅| |  |✅|✅|
-| <center>[한수지](https://github.com/)</center>            |✅|   ✅|✅| ✅|✅|✅|✅| |
-| <center>[김다은](https://github.com/)</center>            |✅|    |✅|  ✅|✅|✅| |  |
+| <center>[심채윤](https://github.com/)🏆</center>            |✅|     |✅| ✅|✅|✅|✅|✅|✅|✅|
+| <center>[임수빈](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
+| <center>[이나린](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
+| <center>[오명석](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
+| <center>[윤예빈](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
+| <center>[장서윤](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
+| <center>[최주용](https://github.com/)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
+| <center>[변지인](https://github.com/)</center>              |✅|     |✅| ✅|✅|✅|✅| |✅|✅|
+| <center>[김은지](https://github.com/)</center>              |✅|   ✅|✅| ✅|  |✅|✅| |✅|✅|
+| <center>[최수환](https://github.com/)</center>              |✅|   ✅|  | ✅|✅| |  |✅|✅|✅| 
+| <center>[한수지](https://github.com/)</center>              |✅|   ✅|✅| ✅|✅|✅|✅|  | |✅|
+| <center>[김다은](https://github.com/)</center>              |✅|    |✅|  ✅|✅|✅| |  | |✅|
 | <center>[박찬용](https://github.com/)</center>            |✅|   ✅|✅| ✅|✅|✅|  | |
 ||
-|     <center>제출</center>                                 |19|15|18|19|18|18|16|14|16|
+|     <center>제출</center>                                 |19|15|18|19|18|18|16|14| 16| 17|
 
 <br>
 
