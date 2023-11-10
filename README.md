@@ -111,7 +111,7 @@
 | <center>[김경주](https://github.com/gaeaeg)🏆</center>            |✅|    |✅|  ✅|✅|✅|✅|✅|✅|✅|
 | <center>[고세종](https://github.com/SebellKo)🏆</center>          |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
 | <center>[나세현](https://github.com/e6d1fe)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
-| <center>[문소희](https://github.com/ccconac)🏆</center>           |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|
+| <center>[문소희](https://github.com/ccconac)🏆</center>           |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
 | <center>[심채윤](https://github.com/chaeyun-sim)🏆</center>       |✅|     |✅| ✅|✅|✅|✅|✅|✅|✅|
 | <center>[임수빈](https://github.com/SU-VIN)🏆</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
 | <center>[이나린](https://github.com/narinn-star)🏆</center>       |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|
@@ -126,7 +126,7 @@
 | <center>[김다은](https://github.com/)</center>                    |✅|    |✅|  ✅|✅|✅| |  | |✅|
 | <center>[박찬용](https://github.com/)</center>                    |✅|   ✅|✅| ✅|✅|✅|  | |
 ||
-|     <center>제출</center>                                 |19|15|18|19|18|18|16|14| 16| 17|
+|     <center>제출</center>                                       |19|15|18|19|18|18|16|14| 16| 18|
 
 <br>
 
