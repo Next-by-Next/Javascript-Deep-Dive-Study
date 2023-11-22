@@ -50,3 +50,69 @@ o.__proto__ // -> Object.prototype
 ### 2) 접근자 프로퍼티
 
 ![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/d5aa0338-4abf-44ea-90b7-c485b694e79f)
+
+
+## 4. 프로퍼티 정의
+
+새로운 프로퍼티를 추가하면서 프로퍼티 어트리뷰트를 명시적으로 정의, 기준 프로퍼티의 프로퍼티 어트리뷰트를 재정의하는 것을 말합니다.    
+Object.defineProperty 메서드를 사용하면 프로퍼티의 어트리뷰트를 정의할 수 있습니다.   
+
+```js
+const person = {};
+
+// doc 
+defineProperty<T>(o: T, p: PropertyKey, attributes: PropertyDescriptor & ThisType<any>): T;
+
+// 1. 데이터 프로퍼티 정의
+Object.defineProperty(person, 'firstName', {
+    value: 'first',
+    writable: true,
+    enumerable: true,
+    configurable: true
+});
+
+// [[Enumerable]] 이 false 이면 
+// 해당 프로퍼티는 for...in, Object.keys 등으로 열거할 수 없다.
+// [[Writable]] 이 false 이면 [[Value]]의 값을 변경할 수 없다.
+// [[Configurable]] 이 false 이면 해당 프로퍼티 재정의, 삭제 할 수 없다.
+
+// 2. 접근자 프로퍼티 정의
+Object.defineProperty(person, 'fullName', {
+    get() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    set(name) {
+        [this.firstName, this.lastName] = name.split(' ');
+    },
+    enumerable: true,
+    configurable: true
+});
+```
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/69e5460e-8d60-4be3-a509-6d07cc828b43)
+
+
+## 5. 객체 변경 방지
+
+자바스크립트는 객체 변경을 방지하는 다양한 메서드를 제공합니다.    
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/79ec3c9b-8734-4382-97be-204c994e5386
+
+자바스크립트는 객체의 변경을 방지하는 다양한 메서드를 제공하며 각각 객체의 변경을 금지하는 강도가 다릅니다.   
+
+### 1) 객체 확장 금지   
+
+`Object.preventExtensions` 메서드는 객체의 확장을 금지합니다. 확장이 금지된 객체는 프로퍼티 추가가 금지됩니다.    
+프로퍼티는 프로퍼티 동적 추가와 `Object.defineProperty` 메서드로 추가할 수 있습니다. 이 두가지 추가 방법이 모두 금지됩니다.   
+
+### 2) 객체 밀봉
+
+`Object.seal` 메서드는 객체를 밀봉합니다. 객체 밀봉(seal)이란 프로퍼티 추가 및 삭제와 프로퍼티 어트리뷰트 재정의 금지를 의비합니다. 즉, 밀봉된 객체는 읽기와 쓰기만 가능합니다.   
+
+### 3) 객체 동결   
+
+`Object.freeze` 메서드는 객체를 동결합니다. 객체 동결이란 프로퍼티 추가 및 삭제와 프로퍼티 어트리뷰트 재정의 금지, 프로퍼티 값 갱신 금지를 의미합니다. 즉, 동결된 객체는 읽기만 가능합니다.   
+
+### 4) 불변 객체
+
+지금까지 살펴본 변경 방지 메서드들은 얕은 변경 방지로 직속 프로퍼티만 변경이 방지되고 중첩 객체까지는 영향을 주지 못합니다. 따라서 Object.freeze 메서드로 객체를 동결하여도 중첩 객체까지 동결할 수 없습니다. 
