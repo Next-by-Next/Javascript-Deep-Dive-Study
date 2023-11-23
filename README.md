@@ -143,14 +143,14 @@
 | <center>[최주용](https://github.com/wuzoo)🏆</center>             |✅|✅|✅|   
 | <center>[김경주](https://github.com/gaeaeg)🏆</center>            |✅|✅|✅|   
 | <center>[심채윤](https://github.com/chaeyun-sim)🏆</center>       |✅|✅|✅| 
-| <center>[윤예빈](https://github.com/YebinYun)</center>          |✅|✅| 
+| <center>[윤예빈](https://github.com/YebinYun)</center>            |✅|✅|❗️| 
 | <center>[강철원](https://github.com/Ryan-dia)</center>            |✅|✅|✅|
 | <center>[한수지](https://github.com/)</center>                    |✅|✅|✅|  
 | <center>[김다은](https://github.com/)</center>                    |✅|✅|✅|  
 | <center>[변지인](https://github.com/)</center>                    |✅|✅|✅|   
 | <center>[김은지](https://github.com/)</center>                    |✅|✅|✅|
 | <center>[최수환](https://github.com/)</center>                    |✅|✅|✅|  
-| <center>[고세종](https://github.com/SebellKo)</center>            |✅|   
+| <center>[고세종](https://github.com/SebellKo)</center>            |✅|  |❗️|   
 | <center>[임수빈](https://github.com/SU-VIN)</center>              | 
 | <center>[박찬용](https://github.com/)</center>                    |  
 ||
