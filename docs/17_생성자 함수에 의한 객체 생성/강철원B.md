@@ -120,3 +120,99 @@ function Person(name) {
 let john = new Person('John');
 console.log(john); // Person { name: 'John' }
 ```
+
+### 4) 내부 메서드 [[Call]]과 [[Construct]]
+
+함수는 객체이지만 일반 객체와는 다릅니다. 일반 객체는 호출할 수 없지만 함수는 호출할 수 있습니다.   
+함수가 일반 함수로서 호출되면 함수 객체의 내부 메서드 [[Call]]이 호출되고 new 연산자와 함께 생성자 함수로서 호출되면 내부 메서드 [[Construct]]가 호출됩니다. 함수는 callable해야 하며 constructor일 수도 있고 non-constructor일 수도 있습니다.    
+>[[Call]]: 함수를 호출할 때 사용하는 내부 메서드입니다. 모든 함수 객체는 [[Call]] 내부메서드를 가지고 있으며, 이 메서드가 있어야 함수로서 호출이 가능합니다. 예를들어, myFunction()와 같이 함수를 호출하면 [[Call]] 내부 메서드가 실행됩니다.
+```js
+function sayHello() {
+    console.log('Hello!');
+}
+
+// 함수를 호출하면 내부적으로 [[Call]] 메서드가 동작합니다.
+sayHello();  // 출력: Hello!
+```
+
+>[[Construct]]: new 연산자와 함께 생성자 함수를 호출할 때 사용하는 내부 메서드입니다. 모든 생성자 함수는 [[Construct]] 내부 메서드를 가지고 있으며, 이 메서드가 있어야 new 키워드를 사용하여 인스턴스를 생성할 수 있습니다. 예를 들어, new MyConstructor()와 같이 생성자 함수를 호출하면 [[Construct]] 내부 메서드가 실행됩니다.
+```js
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// new 키워드를 사용해 생성자 함수를 호출하면 내부적으로 [[Construct]] 메서드가 동작합니다.
+var person = new Person('John', 30);
+
+console.log(person.name);  // 출력: John
+console.log(person.age);   // 출력: 30
+```
+
+### 5) constructor와 non-constructor의 구분
+
+**생성자 함수 (constructor)**
+
+>생성자 함수는 `new`키워드를 사용하여 인스턴스를 생성할 수 있는 함수입니다. 이 함수를 호출하면 `this` 바인딩을 통해 새 객체가 생성되고, 이 객체는 함수의 프로토타입을 상속받습니다. 생성자 함수는 일반적으로 첫 글자를 대문자로 작성하여 다른 개발자에게 생성자 함수임을 알립니다.
+```js
+function Person(name) {
+  this.name = name;
+}
+
+const john = new Person('John'); // 'new' 키워드를 사용하여 생성자 함수 호출
+console.log(john.name); // 출력: 'John'
+```
+
+**비생성자 함수(non-constructor)**
+
+>비생성자 함수는 `new`키워드와 함꼐 호출할 수 없습니다. 만약 `new`키워드와 함게 호출하려고 시도하면, TypeError가 발생합니다. 화살표 함수, 메서드 축약 표현, Object, Function등의 빌트인 함수는 비생성자 함수의 예시입니다.
+
+```js
+const arrowFunc = () => {};
+new arrowFunc(); // TypeError: arrowFunc is not a constructor
+```
+
+### 6) new 연산자
+
+>`new` 연산자는 객체를 생성하고 초기화하는 데 사용됩니다. 이 연산자는 생성자 함수를 호출하며, 그 과정에서 객체를 생성하고 반환합니다. 특정 데이터 구조를 나타내는 클래스나 생성자 함수를 정의하고, 그 구조에 맞는 다수의 객체를 만들어야 하는 경우에 `new`연산자를 사용할 수 있습니다.
+
+```js
+// 생성자 함수를 정의
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// new 연산자를 사용해 Person 객체를 생성
+var person1 = new Person('John', 30);
+var person2 = new Person('Jane', 25);
+
+console.log(person1);  // Person { name: 'John', age: 30 }
+console.log(person2);  // Person { name: 'Jane', age: 25 }
+```
+
+사용자가 정의한 클래스나 라이브러리가 제공하는 클래스를 인스턴스화할 때도 `new`연산자가 사용됩니다. 예를 들어, `Express.js`와 같은 웹 프레임워크에서는 라우터 인스턴스를 만들기 위해 `new`를 사용합니다.   
+
+```js
+let express = require('express');
+let router = new express.Router();
+```
+
+`new` 연산자와 함꼐 생성자 함수로서 호출하면 함수 내부의 `this`는 생성할 인스턴스를 가리키지만 일반 함수로 호출하게 되면 함수 내부의 `this`는 전역 객체 `window`를 가리킵니다.   
+
+### 7) new.target
+
+>ES6에서 도입된 속성으로, 함수나 생성자가 `new`연산자를 통해 호출되었는지 아닌지를 확인할 수 있습니다. `new`를 통해 호출된 함수 내부에서`new.target`을 사용하면, `new`연산자가 앞서 호출한 생성자를 참조합니다. 만약 `new`를 사용하지 않고 일반 함수처럼 호출했다면, `new.target`은 `undefined`를 반환합니다.
+
+```js
+function ExampleConstructor() {
+    if (!new.target) {
+        console.log('Called without new');
+    } else {
+        console.log('Called with new');
+    }
+}
+
+ExampleConstructor();  // 출력: 'Called without new'
+new ExampleConstructor();  // 출력: 'Called with new'
+```
