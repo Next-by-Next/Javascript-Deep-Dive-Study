@@ -116,7 +116,7 @@
 | <center>[장서윤](https://github.com/pipisebastian)🏆</center>     |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 | <center>[최주용](https://github.com/wuzoo)🏆</center>             |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 | <center>[김경주](https://github.com/gaeaeg)</center>            |✅|    |✅|  ✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-| <center>[심채윤](https://github.com/chaeyun-sim)🏆</center>       |✅|     |✅| ✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+| <center>[심채윤](https://github.com/chaeyun-sim)</center>       |✅|     |✅| ✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 | <center>[한수지](https://github.com/)</center>                    |✅|   ✅|✅| ✅|✅|✅|✅|  | |✅|✅|✅|✅|✅|✅|
 | <center>[김다은](https://github.com/)</center>                    |✅|    |✅|  ✅|✅|✅| |  | |✅|✅|✅|✅|✅|✅|
 | <center>[윤예빈](https://github.com/YebinYun)</center>            |✅|   ✅|✅| ✅|✅|✅|✅|✅|✅|✅|  |✅|✅|✅|✅|
@@ -136,13 +136,13 @@
 | :- | :-: | :-: | :-:| :-:| :-:| :-: | :-: | :-: |  :-:|:-:|:-:|:-:|
 | <center>[강성욱](https://github.com/Sungwk)🏆</center>            |✅|✅|✅|✅|✅|   
 | <center>[나세현](https://github.com/e6d1fe)🏆</center>            |✅|✅|✅|✅|✅|  
-| <center>[문소희](https://github.com/ccconac)🏆</center>           |✅|✅|✅|✅|  
+| <center>[문소희](https://github.com/ccconac)🏆</center>           |✅|✅|✅|✅|✅|  
 | <center>[이나린](https://github.com/narinn-star)🏆</center>       |✅|✅|✅|✅|✅|  
 | <center>[오명석](https://github.com/ohgus)🏆</center>             |✅|✅|✅|✅|✅| 
 | <center>[장서윤](https://github.com/pipisebastian)🏆</center>     |✅|✅|✅|✅|✅|   
 | <center>[최주용](https://github.com/wuzoo)🏆</center>             |✅|✅|✅|✅|✅|   
 | <center>[김경주](https://github.com/gaeaeg)</center>              |✅|✅|✅| |✅|   
-| <center>[심채윤](https://github.com/chaeyun-sim)🏆</center>       |✅|✅|✅|✅| 
+| <center>[심채윤](https://github.com/chaeyun-sim)</center>         |✅|✅|✅|✅| |
 | <center>[강철원](https://github.com/Ryan-dia)</center>            |✅|✅|✅|✅|✅|
 | <center>[한수지](https://github.com/)</center>                    |✅|✅|✅|✅|✅|  
 | <center>[김다은](https://github.com/)</center>                    |✅|✅|✅|✅|✅|  
@@ -154,7 +154,7 @@
 | <center>[임수빈](https://github.com/SU-VIN)</center>              | 
 | <center>[박찬용](https://github.com/)</center>                    |  
 ||
-|     <center>제출</center>                                       |17|16|15|14|14
+|     <center>제출</center>                                       |17|16|15|14|15
 
 <br>
 
