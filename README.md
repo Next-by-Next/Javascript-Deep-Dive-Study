@@ -215,6 +215,37 @@
 
 <br>
 
+## 📚북 스터디 함께하시는 분들 Part 2 ( 모집중 )
+
+<br>
+
+| 　　\　Day<br>이름　\  |1 | 2|3|4| 5|6 |7|8|9 |10| 11| 12|13|14|15|16|
+| :- | :-: | :-: | :-:| :-:| :-:| :-: | :-: | :-: |  :-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| <center>[강철원](https://github.com/Ryan-dia)🏅</center>            |
+| <center>[강성욱](https://github.com/Sungwk)🏅</center>            |
+| <center>[고세종](https://github.com/SebellKo)🏅</center>            |
+| <center>[나세현](https://github.com/e6d1fe)🏅</center>            | 
+| <center>[문소희](https://github.com/ccconac)🏅</center>           |
+| <center>[이나린](https://github.com/narinn-star)🏅</center>       |
+| <center>[심채윤](https://github.com/chaeyun-sim)🏅</center>         |
+| <center>[장서윤](https://github.com/pipisebastian)🏅</center>     | 
+| <center>[최주용](https://github.com/wuzoo)🏅</center>             |
+| <center>[한수지](https://github.com/nincoding)🏅</center>                    |
+||
+|     <center>제출</center>                                       |
+
+<br>
+
+|끈기 |🎖️ | 마지막 day 제출 및 4회 이하 미제출  |
+| --- | ---| ---|
+|완주 |👑 | 마지막 day 제출 및 2회 이하 미제출  |
+|개근 |🏆 | 1회 이하 미제출 |
+|꾸준 |🏅 | part 1 참가자 |
+    
+❗️ 끈기와 완주 배지는 중복적용되지 않습니다.
+
+<br>
+
 ##  모던 자바스크립트 스터디 시즌 1 
 
 ---
