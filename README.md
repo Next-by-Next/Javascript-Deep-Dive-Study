@@ -223,7 +223,9 @@
 | :- | :-: | :-: | :-:| :-:| :-:| :-: | :-: | :-: |  :-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | <center>[강철원](https://github.com/Ryan-dia)🏅</center>            |
 | <center>[강성욱](https://github.com/Sungwk)🏅</center>            |
-| <center>[고세종](https://github.com/SebellKo)🏅</center>            |
+| <center>[고세종](https://github.com/SebellKo)🏅</center>          |
+| <center>[김다은](https://github.com/llqqssttyy)🏅</center>                   |
+| <center>[김은지](https://github.com/publdaze)🏅</center>                     |
 | <center>[나세현](https://github.com/e6d1fe)🏅</center>            | 
 | <center>[문소희](https://github.com/ccconac)🏅</center>           |
 | <center>[이나린](https://github.com/narinn-star)🏅</center>       |
