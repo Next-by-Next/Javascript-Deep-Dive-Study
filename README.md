@@ -234,6 +234,7 @@
 | <center>[최주용](https://github.com/wuzoo)🏅</center>             |
 | <center>[한수지](https://github.com/nincoding)🏅</center>                    |
 | <center>[김유나](https://github.com/yui880)</center>                    |
+| <center>[최성관](https://github.com/kwani6684)</center>                    |
 ||
 |     <center>제출</center>                                       |
 
