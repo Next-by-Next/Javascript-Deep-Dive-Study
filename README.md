@@ -233,6 +233,8 @@
 | <center>[장서윤](https://github.com/pipisebastian)🏅</center>     | 
 | <center>[최주용](https://github.com/wuzoo)🏅</center>             |
 | <center>[한수지](https://github.com/nincoding)🏅</center>                    |
+| <center>[변지인](https://github.com/byunjiin)🏅</center>                   |
+| <center>[김경주](https://github.com/gaeaeg)🏅</center> 
 | <center>[김유나](https://github.com/yui880)</center>                    |
 | <center>[최성관](https://github.com/kwani6684)</center>                    |
 ||
