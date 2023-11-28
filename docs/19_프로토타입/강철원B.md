@@ -119,3 +119,75 @@ console.log(circle2.getArea());	// 12.56637...
 
 `Circle` 생성자 함수가 생성한 모든 인스턴스는 상위(부모) 객체 역할을 하는 `Circle.prototype`의 모든 프로퍼티와 메서드를 상속받습니다.    
 위 예제에서 생성된 모든 인스턴스는 `radius`프로퍼티만 개별적으로 소유하고 동일한 메서드는 상속을 통해 공유하여 사용합니다.
+
+## 3. 프로토타입 객체
+
+프로토타입 객체(또는 프로토타입)란 객체 간 상속을 구현하기 위해 사용됩니다.     
+모든 객체는 [[Prototype]]이라는 내부 슬롯을 가지며, 이 내부 슬롯의 갓은 프로토타입의 참조입니다. 객체가 생성될 때 객체 생성 방식에 따라 프로토타입이 결정되고 [[Prototype]]에 저장됩니다.    
+
+객체와 프로토타입과 생성자 함수는 다음 그림과 같이 서로 연결되어있습니다.   
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/f74d26f0-dcae-4953-a9e6-701546545915)
+
+[[Prototype]] 내부 슬롯에는 직접 접근할 수 없지만, __proto__접근자 프로퍼티를 통해 자신의 [[Prototype]] 내부 슬롯이 가리키는 프로토타입에 간접적으로 접근할 수 있습니다.   
+그리고 프로토타입은 자신의 constructor 프로퍼티를 통해 생성자 함수에 접근할 수 있고, 생성자 함수는 자신의 prototype 프로퍼티를 통해 프로토타입에 접근할 수 있습니다.   
+
+### 1) __proto__접근자 프로퍼티
+
+다음 예제는 크롬 브라우저의 콘솔에서 출력한 결과입니다. 
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/6ddad511-fdfb-4257-862d-5cccd2225876)
+
+
+그림의 빨간 박스로 표시한 person 객체의 프로토타입은 __proto__ 접근자 프로퍼티를 통해 `perosn`객체의 `[[Prototype]]`내부 슬롯이 가리키는 객체인 `Object.prototype`에 접근한 결과입니다.   
+
+#### ✅ `__Proto__`에 관한 4가지 진실
+
+1. `__proto__`는 접근자 프로퍼티입니다.
+직접 [[Prototype]]`에 접근할 수 없고 이에 접근할 수 있는 역할을 해줍니다.
+아래의 예제에서 접근자 프로퍼티를 활용해 obj의 프로토타입을 parent로 변경하였고, 실제로 변경된 것을 확인 할 수 있습니다.
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/5596c887-1fef-4de5-84ef-7f29db1b31ed)
+
+2. `__proto__`접근자 프로퍼티는 상속을 통해 사용됩니다.
+`__proto__`접근자 프로퍼티는 객체가 직접 소유하는 것이 아니라, `Object.prototype`의 프로퍼티입니다. 모든 객체는 상속을 통해 `Object.prototype.__proto__`접근자 프로퍼티를 사용할 수 있습니다.
+
+3. `__proto__`접근자 프로퍼티를 통해 프로토타입에 접근하는 이유
+상호 참조에 의해 프로토타입 체인이 생성되는 것을 방지하기 위해서입니다. 무조건 단방향 링크드 리스트로 구현되어야 하는데, 순환참조하는 프로토타입 체인이 만들어지면 프로토타입 체인 종점이 존재하지 않기 때문에 프로퍼티 검색 시에 무한 루프에 빠지기 때문입니다.
+
+4. `__proto__`접근자 프로퍼티를 코드 네에서 직접 사용하는 것은 권장하지 않습니다.
+모든 객체가 이 접근자 프로퍼티를 사용할 수 있는 것은 아니기 때문에 프로토타입의 참조를 취득하고 싶은 경우에는 `Object.getPrototypeOf`메서드를 사용합니다.
+
+```js
+const obj = {};
+const parent = {x:1};
+
+//obj 객체의 프로토타입을 취득
+Object.getPrototypeOf(obj); // obj.__proto__;
+//obj 객체의 프로토타입을 교체
+Object.setPrototypeOf(obj, parent); //obj.__proto__ = parent;
+```
+### 2) 함수 객체의 prototype 프로퍼티
+
+함수 객체만이 소유하는 `prototype`프로퍼티는 생성자 함수가 생성할 인스턴스의 프로토타입을 가리킵니다.   
+따라서 `non-constructor`인 화살표 함수와 ES6메서드 축약 표현으로 정의한 메서드는 `prototype`프로퍼티를 소유하지 않으며 프로토타입도 생성하지 않습니다.    
+
+생성자 함수로 호출하기 위해 정의하지 않은 일반 함수(함수 선언문, 함수 표현식)도 `prototype`프로퍼티를 소유하지만 아무런 의미가 없습니다.   
+
+>모든 객체가 가지고 있는(엄밀히 말하면 Object.prototype으로부터 상속받은)`__proto__`접근자 프로퍼티와 함수 객체만이 가지고 있는 `prototype`프로퍼티는 결국 동일한 프로토타입을 가리킵니다.
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/16049570-2c21-4ce9-ade6-cc014de8f7d7)
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/568d1cd5-5756-4e11-b9d9-8f720af24948)
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/8f2bc5e7-dc91-4cad-a055-924d1c166023)
+
+`Person.prototype`과 `me.__proto__`는 결국 동일한 프로토타입을 가리킵니다.   
+
+### 3) 프로토타입의 constructor 프로퍼티와 생성자 함수
+
+모든 프로토타입은 `constructor`프로퍼티를 갖습니다. 이 `constructor`프로퍼티는 `prototype`프로퍼티로 자신을 참조하고 있는 생성자 함수를 가리킵니다. 이 연결은 함수 객체가 생성될 때 이뤄집니다.   
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/d0f836c9-1844-44bd-b5c4-b432de67a3a8)
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/d83cb847-8098-43a9-8176-0ee2b46867d9)
+
+생성된 `me` 객체는 프로토타입의 `constructor` 프로퍼티를 통해 생성자 함수와 연결됩니다. `me`객체의 프로토타입인 `Person.prototype`에는 `me`객체에 없는 `constructor` 프로퍼티가 있습니다.  따라서 `me` 객체는 `constructor`프로퍼티를 상속받아 사용할 수 있습니다. 
