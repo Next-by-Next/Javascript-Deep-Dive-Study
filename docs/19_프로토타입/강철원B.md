@@ -191,3 +191,145 @@ Object.setPrototypeOf(obj, parent); //obj.__proto__ = parent;
 ![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/d83cb847-8098-43a9-8176-0ee2b46867d9)
 
 생성된 `me` 객체는 프로토타입의 `constructor` 프로퍼티를 통해 생성자 함수와 연결됩니다. `me`객체의 프로토타입인 `Person.prototype`에는 `me`객체에 없는 `constructor` 프로퍼티가 있습니다.  따라서 `me` 객체는 `constructor`프로퍼티를 상속받아 사용할 수 있습니다. 
+
+<br>
+
+### 4) 리터럴 표기법에 의해 생서된 객체의 생성자 함수와 프로토타입
+
+>리터럴 표기법에 의해 생성된 객체의 경우 프로토타입의 `constructor`프로퍼티가 가리키는 생성자 함수가 반드시 객체를 생성한 생성자 함수라고 단정할 수 없습니다.
+
+리터럴 표기법에 의한 객체 생성 방식은 인스턴스를 생성하지 않습니다.    
+
+>리터럴로 생성하는 방식
+```js
+// 객체 리터럴
+const obj = {};
+
+// 함수 리터럴
+const add = function (a, b) { return a + b; };
+
+// 배열 리터럴
+const arr = [1, 2, 3];
+
+// 정규표현식 리터럴
+const regexp = /is/ig;
+```
+
+리터럴 표기법에 의해 생성된 객체도 물론 프로토타입이 존재합니다. 하지만 이런 객체는 `constructor`프로퍼티가 가리키는 생성자 함수가 반드시 객체를 생성한 함수라고 단정할 수 없습니다.    
+
+```js
+// obj 객체는 Object 생성자 함수로 생성한 객체가 아니라 객체 리터럴로 생성했다.
+const obj = {};
+
+// 하지만 obj 객체의 생성자 함수는 Object 생성자 함수다.
+console.log(obj.constructor === Object); // true
+```
+위 예제같은 경우 객체 리터럴로 생성한 객체의 `constructor`프로퍼티는 `Object`생성자 함수와 연결되어 있습니다.   
+
+결과적으로 리터럴로 생성한 객체와 생성자 함수로 생성한 객체의 `constructor`프로퍼티를 확인하면 동일해 보이지만 객체가 생성되는 방식은 다릅니다.    
+
+위 예제에서 생성된 객체의 생성자 함수는 왜 `Object` 생성자 함수일까?    
+ECMAScript를 살펴보면 알 수 있다.    
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/785ac6bb-3879-4192-8689-b87c24011736)
+
+2번 항목에서 `Object` 생성자 함수에 인수를 전달하지 않거나 `undefined`또는 `null`을 인수로 전달하면서 호출하면 내부적으로는 추상 연산 `OrdinaryObjectCreate`를 호출하여 `Object.prototype`을 프로토타입으로 갖는 빈 객체를 생성합니다.    
+
+```js
+// 1. new.target이 undefined나 Object가 아닌 경우
+// 인스턴스 -> Foo.prototype -> Object.prototype 순으로 프로토타입 체인이 생성된다.
+class Foo extends Object {}
+new Foo(); // Foo {}
+
+// 2. Object 생성자 함수에 의한 객체 생성
+// Object 생성자 함수는 new 연산자와 함께 호출하지 않아도 new 연산자와 함께 호출한 것과 동일하게 동작한다.
+// 인수가 전달되지 않았을 때 추상 연산 OrdinaryObjectCreate를 호출하여 빈 객체를 생성한다.
+let obj = new Object();
+console.log(obj); // {}
+
+// 3. 인수가 전달된 경우에는 인수를 객체로 변환한다.
+// Number 객체 생성
+obj = new Object(123);
+console.log(obj); // Number {123}
+
+// String  객체 생성
+obj = new Object('123');
+console.log(obj); // String {"123"}
+```
+
+이처럼 `Object` 생성자 함수 호출과 객체 리터럴의 평가는 추상 연산 `OrdinaryObjectCreate`를 호출하여 빈 객체를 생성하는 점에서 동일하나 `new.target`의 확인이나 프로퍼티를 추가하는 처리 등 세부내용은 다릅니다. 따라서 객체 리터럴에 의해 생성된 객체는 `Object`생성자 함수가 생성한 객체가 아닙니다.      
+
+이런 차이는 함수 객체의 경우 더 명확합니다.    
+12.4.4절 Function 생성자 함수에서 보았듯이 `Function`생성자 함수를 호출해 생성한 함수는 렉시컬 스코프를 만들지 않고 전역함수인 것처럼 스코프를 생성하며, 클로저도 만들지 않습니다.    
+
+함수 선언문과 함수 표현식을 평가하여 함수 객체를 생성한 것은 `Function`생성자 함수가 아닙니다. 하지만 `constructor`프로퍼티를 통해 확인해 보면 `foo`함수의 생성자 함수는 `Function`생성자 함수입니다.   
+
+```js
+// foo 함수는 Function 생성자 함수로 생성한 함수 객체가 아니라 함수 선언문으로 생성했다.
+function foo() {}
+
+// 하지만 constructor 프로퍼티를 통해 확인해보면 함수 foo의 생성자 함수는 Function 생성자 함수다.
+console.log(foo.constructor === Function); // true
+```
+
+| 리터럴 표기법           | 생성자 함수  | 프로토타입         |
+|------------------------|--------------|--------------------|
+| 객체 리터럴             | Object       | Object.prototype   |
+| 함수 리터럴             | Function     | Function.prototype |
+| 배열 리터럴             | Array        | Array.prototype    |
+| 정규 표현식 리터럴     | RegExp       | RegExp.prototype   |
+
+<br>
+
+### 5) 프로토타입의 생성 시점
+
+프로토타입은 생성자 함수가 생성되는 시점에 더불어 생성됩니다.    
+
+생성자 함수는 사용자가 직접 정의한 사용자 정의 생성자 함수와 자바스크립트가 기본 제공하는 빌트인 생성자 함수로 구분할 수 있습니다.   
+
+#### (1) 사용자 정의 생성자 함수와 프로토타입 생성 시점
+>생성자 함수로서 호출할 수 있는 함수, 즉 `constructor`는 함수 정의가 평가되어 함수 객체를 생성하는 시점에 프로토타입도 더불어 생성됩니다. `non-constructor`는 프로토타입이 생성되지 않습니다.
+
+```js
+// 호이스팅으로 선언문에 도달하기 전에 함수 객체가 생성된다.
+// 함수 정의(constructor)가 평가되어 함수 객체를 생성하는 시점에 프로토타입도 더불어 생성된다.
+console.log(Person.prototype); // {constructor: ƒ}
+
+// 생성자 함수
+function Person(name) {
+  this.name = name;
+}
+```
+위 예제에서 볼 수 있듯이 생성자 함수는 어떤 코드보다 먼저 평가되어 함수 객체가 되고, 그때 프로토타입도 더불어 생성됩니다.    
+
+생성된 프로토타입은 `Person`생성자 함수의 `prototype`프로퍼티에 바인딩됩니다. 위 예제에서 생성된 프로토타입의 내부는 아래와 같습니다.    
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/c9158b10-457e-41f2-9771-1660b7de9aa9)
+
+프로토타입도 객체이고 모든 객체는 프로토타입을 가지므로 프로토타입도 자신의 프로토타입을 갖습니다. 생성된 `prototype`의 프로토타입은 `Object.prototype`입니다.
+
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/f2a9260e-c978-4e0b-a13b-ad0266c2b512)
+
+
+#### (2) 빌트인 생성자 함수와 프로토타입 생성 시점
+
+Object, String, Number, Function, Array, RegExp, Date, Promise 등과 같은 빌트인 생성자 함수도 생성되는 시점에 프로토타입이 생성됩니다.     
+모든 빌트인 생성자 함수는 전역 객체가 생성되는 시점에 생성되고 생성된 프로토타입은 빌트인 생성자 함수의 prototype 프로퍼티에 바인딩됩니다.    
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/0ef740a4-f8cc-48b1-99de-ed540451313f)
+
+
+>전역 객체
+```text
+전역 객체는 코드가 실행되기 전에 자바스크립트 엔진에 의해 생성됩니다.
+브라우저에서는 window, 서버 사이드 환경에서는 global 객체를 의미합니다.
+전역 객체는 표준 빌트인 객체들과 환경에 따른 호스트 객체,
+그리고 var 키워드로 선언한 전역 변수와 전역함수를 프로퍼티로 갖습니다.
+```
+
+이처럼 객체가 생성되기 이전에 생성자 함수와 프로토타입은 이미 객체화 되어 존재하고, 이후 생성자 함수 또는 리터럴 표기법으로 객체를 생성하면 프로토타입은 생성된 객체의 `[[Prototype]]`내부 슬롯에 할당됩니다.    
+
+<br>
+
+
