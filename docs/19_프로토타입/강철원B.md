@@ -1,4 +1,4 @@
-![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/8954f843-d553-441d-a87e-c17b752f6cd5)**TIL(Today I learn) 기록일** : 2023.11.27
+**TIL(Today I learn) 기록일** : 2023.11.27
 
 # 19장 프로토타입
 
