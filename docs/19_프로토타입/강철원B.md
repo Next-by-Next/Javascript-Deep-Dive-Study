@@ -407,3 +407,202 @@ const me = new Person('Lee');
 
 ![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/f0edb04e-7ea2-4670-b800-41e273714099)
 
+<br>
+
+## 7. 프로토타입 체인
+
+>프로토타입 체인이란?
+```text
+자바스크립트는 객체의 프로퍼티에 접근하려고 할 때 해당 객체에 접근하려는 프로퍼티가 없다면 [[Prototype]]내부 슬롯의 참조를 따라 자신의 부모 역할을 하는 프로토타입의 프로퍼티를 순차적으로 검색합니다.
+프로토타입 체인은 자바스크립트가 객체지향 프로그래밍의 상속을 구현하는 매커니즘입니다.
+```
+
+자바스크립트 엔진은 프로토타입 체인을 따라 프로퍼티/메서드를 검색합니다. 객체간의 상속관계로 이루어진 프로토타입의 계층적인 구조에서 객체의 프로퍼티를 검색합니다.    
+
+프로토타입 체인은 상속과 프로퍼티 검색을 위한 메커니즘입니다.    
+
+이에 반해 식별자는 스코프 체인에서 검색해야합니다. 함수의 중첩 관계로 이루어진 스코프의 계층적 구조에서 식별자를 검색합니다.    
+
+>스코프 체인은 식별자 검색을 위한 메커니즘입니다
+```js
+function Person(name) {
+  this.name = name;
+}
+
+// 프로토타입 메서드
+Person.prototype.sayHello = function () {
+  console.log(`Hi! My name is ${this.name}`);
+};
+
+const me = new Person('Lee');
+
+// hasOwnProperty는 Object.prototype의 메서드다.
+console.log(me.hasOwnProperty('name')); // true
+```
+
+me 객체의 프로토타입은 `Person.prototype`이고, `Person.prototype`의 프로토타입은 `Object.prototype`입니다.
+프로토타입의 프로토타입은 언제나 `Object.prototype`입니다.
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/f6375ca0-efad-46da-840e-f1e601436e0e)
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/8fc1a7a0-c96d-4f01-8cda-f0815eaeb540)
+
+
+me.hasOwnProperty('name')과 같이 메서드를 호출하면 자바스크립트 엔진은 다음과 같은 과정을 거쳐 메서드를 검색합니다. 물론 프로퍼티를 참조하는 경우도 마찬가지입니다.
+
+1. hasOwnProperty 메서드를 호출한 me 객체에서 hasOwnProperty 메서드를 검색한다. me 객체에는 hasOwnProperty 메서드가 없으므로 [[Prototype]] 내부 슬롯에 바인딩되어 있는 프로토타입으로 이동하여 hasOwnProperty 메서드를 검색한다.
+2. Person.prototype에도 hasOwnProperty 메서드가 없으므로 프로토타입 체인을 따라 [[Prototype]] 내부 슬롯에 바인딩되어 있는 프로토타입으로 이동하여 hasOwnProperty 메서드를 검색한다.
+3. Object.prototype에는 hasOwnProperty 메서드가 존재한다. 자바스크립트 엔진은 Object.hasOwnProperty 메서드를 호출하고, 이때 Object.hasOwnProperty 메서드의 this에는 me 객체가 바인딩된다.
+
+<br>
+
+## 8. 오버라이딩과 프로퍼티 섀도잉
+
+```js
+const Person = (function () {
+  // 생성자 함수
+  function Person(name) {
+    this.name = name;
+  }
+
+  // 프로토타입 메서드
+  Person.prototype.sayHello = function () {
+    console.log(`Hi! My name is ${this.name}`);
+  };
+
+  // 생성자 함수를 반환
+  return Person;
+}());
+
+const me = new Person('Lee');
+
+// 인스턴스 메서드
+me.sayHello = function () {
+  console.log(`Hey! My name is ${this.name}`);
+};
+
+// 인스턴스 메서드가 호출된다. 프로토타입 메서드는 인스턴스 메서드에 의해 가려진다.
+me.sayHello(); // Hey! My name is Lee
+```
+
+생성자 함수로 객체를 생성한 다음, 인스턴스에 메서드를 추가합니다.
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/7ccadd31-0e8c-4e93-9b06-fefe43c12952)
+
+프로토타입이 소유한 프로퍼티를 프로토타입 프로퍼티, 인스턴스가 소유한 프로퍼티를 인스턴스 프로퍼티라고 부릅니다.   
+
+같은 이름의 프로퍼티를 인스턴스에 추가하면 덮어쓰는 것이 아니라 인스턴스 프로퍼티로 추가합니다. 이때 인스턴스 메서드는 프로토타입 메서드를 오버라이딩했고 프로토타입 메서드는 가려집니다.    
+이처럼 상속 관계에 의해 프로퍼티가 가려지는 현상은 프로퍼티 섀도잉이라 합니다.    
+
+>오버라이딩
+```text
+상위 클래스가 가지고 있는 메서드를 하위 클래스가 재정의하여 사용하는 방식입니다.
+```
+
+<br>
+
+## 9. 프로토타입 교체
+
+프로토타입은 임의의 다른 객체로 변경할 수 있습니다. 이러한 특징을 활용하여 객체 간의 상속 관계를 동적으로 변경할 수 있습니다.    
+
+### 1) 생성자 함수에 의한 프로토타입의 교체
+
+```js
+const Person = (function(){
+  function Person(name){
+    this.name = name;
+  }
+  
+  // 1️⃣ 생성자 함수의 prototype 프로퍼티를 통해 프로토타입을 교체
+  Person.prototype = {
+    sayHello() {
+      console.log(`Hi! My name is ${this.name}`);
+    }
+  };
+  
+  return Person;
+}());
+
+const me = new Person('Lee');
+```
+1️⃣에서 `Person.prototype`에 객체 리터럴을 할당습니다. 이는 `Person`생성자 함수가 생성할 객체의 프로토타입을 객체 리터럴로 교체한 것 입니다.   
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/8da6845c-47a3-4447-99ec-e89fd9bdbd94)
+
+프로토타입으로 교체한 객체 리터럴에는 `constructor` 프로퍼티가 없습니다. 따라서 `me`객체의 생성자 함수를 검색하면 `Person`이 아닌 `Object`가 나옵니다.   
+
+```js
+// 프로토타입을 교체하면 constructor 프로퍼티와 생성자 함수 간의 연결이 파괴된다.
+console.log(me.constructor === Person); // false
+// 프로토타입 체인을 따라 Object.prototype의 constructor 프로퍼티가 검색된다.
+console.log(me.constructor === Object); // true
+```
+
+프로토타입으로 교체한 객체 리터렐에 `constructor`프로퍼티를 추가하여 파괴된 `constructor`프로퍼티와 생성자 함수 간의 연결을 되살려 보자.   
+
+```js
+const Person = (function () {
+  function Person(name) {
+    this.name = name;
+  }
+
+  // 생성자 함수의 prototype 프로퍼티를 통해 프로토타입을 교체
+  Person.prototype = {
+    // ② constructor 프로퍼티와 생성자 함수 간의 연결을 설정
+    constructor: Person,
+    sayHello() {
+      console.log(`Hi! My name is ${this.name}`);
+    }
+  };
+
+  return Person;
+}());
+
+const me = new Person('Lee');
+
+// constructor 프로퍼티가 생성자 함수를 가리킨다.
+console.log(me.constructor === Person); // true
+console.log(me.constructor === Object); // false
+```
+
+### 2) 인스턴스에 의한 프로토타입의 교체
+
+인스턴스의 `__proto__`접근자 프로퍼티(또는 `Object.setPrototypeOf`메서드)를 통해 프로토타입을 교체할 수 있습니다.    
+
+생성자 함수의 `prototype`프로퍼티에 다른 임의의 객체를 바인딩하는 것은 미래에 생성할 인스턴스 프로토타입을 교체하는 것입니다.     
+`__proto__`접근자 프로퍼티를 통해 프로토타입을 교체하는 것은 이미 생성된 객체의 프로토타입을 교체하는 것 입니다.   
+
+```js
+function Person(name) {
+  this.name = name;
+}
+
+const me = new Person('Lee');
+
+// 프로토타입으로 교체할 객체
+const parent = {
+  sayHello() {
+    console.log(`Hi! My name is ${this.name}`);
+  }
+};
+
+// 1️⃣ me 객체의 프로토타입을 parent 객체로 교체한다.
+Object.setPrototypeOf(me, parent);
+// 위 코드는 아래의 코드와 동일하게 동작한다.
+// me.__proto__ = parent;
+
+me.sayHello(); // Hi! My name is Lee
+```
+1️⃣을 그림으로 보면 아래와 같습니다.   
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/40f62b7b-4a8a-49a1-845b-9a34da96113d)
+
+생성자 함수에 의한 프로토타입의 교체와 마찬가지로 constructor프로퍼티와 생성자 함수 간의 연결이 파괴됩니다.   
+생성자 함수와 인스턴스 각각의 프로토타입 교체는 차이가 없어보이지만 미묘한 차이가 있습니다.    
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/0a17487f-76b4-46e1-8cd5-053ee1f4d91f)
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/e0f07695-dda2-468a-9bad-e12862047442)
+
+
+이처럼 프로토타입 교체를 통한 상속 관계를 동적으로 변경하는 것은 꽤나 번거로우니 직접 교체하지 않는 것이 좋습니다.   
+상속 관계를 인위적으로 설정하려면 후에 배울 직접 상속이 더 편리하고 안전합니다. 또한 클래스를 사용하면 간편하고 진관적으로 상속을 구현할 수 있습니다.
