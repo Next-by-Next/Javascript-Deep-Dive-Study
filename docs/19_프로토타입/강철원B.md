@@ -606,3 +606,149 @@ me.sayHello(); // Hi! My name is Lee
 
 이처럼 프로토타입 교체를 통한 상속 관계를 동적으로 변경하는 것은 꽤나 번거로우니 직접 교체하지 않는 것이 좋습니다.   
 상속 관계를 인위적으로 설정하려면 후에 배울 직접 상속이 더 편리하고 안전합니다. 또한 클래스를 사용하면 간편하고 진관적으로 상속을 구현할 수 있습니다.
+
+<br>
+
+## 10. instanceof 연산자
+
+`instanceof` 연산자는 이항 연산자로서 좌변에 객체를 가리키는 식별자, 우변에 생성자 함수를 가리키는 식별자를 피연산자로 받는다. 만약 우변의 피연산자 함수가 아닌 경우 `typeError`가 발생합니다.     
+
+우변의 생성자 함수의 `prototype`에 바인딩된 객체가 좌변의 객체의 프로토타입 체인 상에 존재하면 `true`로 평가되고, 그렇지 않은 경우에는 `false로 평가됩니다.  
+```js
+// 생성자 함수
+function Person(name) {
+  this.name = name;
+}
+
+const me = new Person('Lee');
+
+// Person.prototype이 me 객체의 프로토타입 체인 상에 존재하므로 true로 평가됩니다.
+console.log(me instanceof Person); // true
+
+// Object.prototype이 me 객체의 프로토타입 체인 상에 존재하므로 true로 평가됩니다.
+console.log(me instanceof Object); // true
+```
+
+`instanceof` 연산자가 어떻게 동작하는지 이해하기 위해 프로토타입을 교체해보자
+
+```js
+const Person = (function () {
+  function Person(name) {
+    this.name = name;
+  }
+
+  // 생성자 함수의 prototype 프로퍼티를 통해 프로토타입을 교체
+  Person.prototype = {
+    sayHello() {
+      console.log(`Hi! My name is ${this.name}`);
+    }
+  };
+
+  return Person;
+}());
+
+const me = new Person('Lee');
+
+// constructor 프로퍼티와 생성자 함수 간의 연결은 파괴되어도 instanceof는 아무런 영향을 받지 않는다.
+console.log(me.constructor === Person); // false
+
+// Person.prototype이 me 객체의 프로토타입 체인 상에 존재하므로 true로 평가된다.
+console.log(me instanceof Person); // true
+// Object.prototype이 me 객체의 프로토타입 체인 상에 존재하므로 true로 평가된다.
+console.log(me instanceof Object); // true
+```
+
+`me`객체는 비록 프로토타입이 교체되어 프로토타입과 생성자 함수 간의 연결이 파괴되었지만 `Person` 생성자 함수에 의해 생성된 인스턴스임에는 틀림이 없다. 그러나 `me instanceof Person`은 `false`로 평가됩니다.    
+
+이는 `Person.prototype` `me`객체의 프로토타입 체인 상에 존재하지 않기 때문입니다. 따라서 프로토타입으로 교체한 `parent`객체를 `Person` 생성자 함수의 `prototype`프로퍼티에 바인딩하면 `me instanceof Person`은 `true`로 평가됩니다.    
+
+<br>
+
+## 11. 직접 상속
+
+### 1) Object.create에 의한 직접 상속
+
+`Object.create`메서드는 명시적으로 프로토타입을 지정하여 새로운 객체를 생성합니다. 
+
+```js
+/**
+  * 지정된 프로토타입 및 프로퍼티를 갖는 새로운 객체를 생성하여 반환합니다.
+  * @param {Object} prototype - 첫번째 인수 : 생성할 객체의 프로토타입으로 지정할 객체
+  * @param {Object} [propertiesObject] - 두번째 인수: 생성할 객체의 프로퍼티를 갖극 객체(생략 가능)
+  * @return {Object} 지정된 프로토타입 및 프로퍼티를 갖는 새로운 객체
+*/
+Object.create(prototype[, propertiesObject])
+```
+
+
+
+```js
+// 프로토타입이 null인 객체를 생성한다. 생성된 객체는 프로토타입 체인의 종점에 위치한다.
+// obj → null
+let obj = Object.create(null);
+console.log(Object.getPrototypeOf(obj) === null); // true
+// Object.prototype을 상속받지 못한다.
+console.log(obj.toString()); // TypeError: obj.toString is not a function
+
+// obj → Object.prototype → null
+// obj = {};와 동일하다.
+obj = Object.create(Object.prototype);
+console.log(Object.getPrototypeOf(obj) === Object.prototype); // true
+
+// obj → Object.prototype → null
+// obj = { x: 1 };와 동일하다.
+obj = Object.create(Object.prototype, {
+  x: { value: 1, writable: true, enumerable: true, configurable: true }
+});
+// 위 코드는 다음과 동일하다.
+// obj = Object.create(Object.prototype);
+// obj.x = 1;
+console.log(obj.x); // 1
+console.log(Object.getPrototypeOf(obj) === Object.prototype); // true
+
+const myProto = { x: 10 };
+// 임의의 객체를 직접 상속받는다.
+// obj → myProto → Object.prototype → null
+obj = Object.create(myProto);
+console.log(obj.x); // 10
+console.log(Object.getPrototypeOf(obj) === myProto); // true
+
+// 생성자 함수
+function Person(name) {
+  this.name = name;
+}
+
+// obj → Person.prototype → Object.prototype → null
+// obj = new Person('Lee')와 동일하다.
+obj = Object.create(Person.prototype);
+obj.name = 'Lee';
+console.log(obj.name); // Lee
+console.log(Object.getPrototypeOf(obj) === Person.prototype); // true
+```
+
+이처럼 `Object.create`메서드는 첫 번째 매개변수에 전달한 객체의 프로토타입 체인에 속하는 객체를 생성합니다. 즉, 객체를 생성하면서 직접적으로 상속을 구현하는 합니다.   
+객체를 생성할 때 장점은 아래와 같습니다.
+
+- new연산자 없이도 객체 생성
+- 프로토타입을 지정하면서 객체 생성
+- 객체 리터럴에 의해 생성된 객체도 상속 가능
+
+
+### 2) 객체 리터럴 내부에서 __proto__에 의한 직접 상속
+
+`Object.create`메서드는 여러 장점이 있지만 두 번째 인자로 프로퍼티를 정의하는 것은 번거롭습니다.   
+ES6에서는 객체 리터럴 내부에서 __proto__접근자 프로퍼티를 사용하여 직접 상속을 구현할 수 있습니다.
+
+```js
+const myProto = { x : 10 };
+const obj = {
+  y: 20,
+// 객체를 직접 상속받습니다.
+// obj -> myProto -> Object.prototype -> null
+__proto__: myProto
+};
+
+console.log(Object.getPrototypeOf(obj) === myProto); //true
+
+console.log(obj.x, obj.y); // 10 20
+```
