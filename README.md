@@ -1,8 +1,9 @@
 
-# ⭐️ 모던 자바스크립트 스터디 
+# ♟️ Modern Jsvascript Deep Dive Study ♟️
 
-### 🚀 [season 1](https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/wiki/season-1#%EB%B6%81-%EC%8A%A4%ED%84%B0%EB%94%94-%ED%95%A8%EA%BB%98%ED%95%98%EC%8B%9C%EB%8A%94-%EB%B6%84%EB%93%A4-part-1--21-%EB%AA%85-)  
-### 🚀 season 2 (진행중)
+
+#### 🚀 [season 1](https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/wiki/season-1#%EB%B6%81-%EC%8A%A4%ED%84%B0%EB%94%94-%ED%95%A8%EA%BB%98%ED%95%98%EC%8B%9C%EB%8A%94-%EB%B6%84%EB%93%A4-part-1--21-%EB%AA%85-)  
+#### 🚀 season 2 (진행중)
 
 ---
 
@@ -13,7 +14,7 @@
 ---
 
 
-<img width="800" alt="image" src="https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/assets/76567238/af6f8e2f-3003-40f3-b960-f4ee089633b4">
+<img width="790" alt="image" src="https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/assets/76567238/af6f8e2f-3003-40f3-b960-f4ee089633b4">
 
 
 ---
