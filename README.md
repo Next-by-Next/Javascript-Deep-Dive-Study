@@ -256,15 +256,15 @@
 |꾸준 |🏅 | part 1 참가자 |
     
 
-[strictMode]:https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/20_strict%20mode
-[빌트인객체]:https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/21_%EB%B9%8C%ED%8A%B8%EC%9D%B8%20%EA%B0%9D%EC%B2%B4
-[this]:https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/22_this
-[실행컨텍스트]:https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/23_%EC%8B%A4%ED%96%89%20%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8
-[클로저]:https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/24_%ED%81%B4%EB%A1%9C%EC%A0%80
-[클래스]:https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/25_%ED%81%B4%EB%9E%98%EC%8A%A4
-[es6]:https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/26_ES6%20%ED%95%A8%EC%88%98%EC%9D%98%20%EC%B6%94%EA%B0%80%20%EA%B8%B0%EB%8A%A5
-[배열]:https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/27_%EB%B0%B0%EC%97%B4
-[number]:https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/28_Number
+[strictMode]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/20_strict%20mode
+[빌트인객체]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/21_%EB%B9%8C%ED%8A%B8%EC%9D%B8%20%EA%B0%9D%EC%B2%B4
+[this]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/22_this
+[실행컨텍스트]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/23_%EC%8B%A4%ED%96%89%20%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8
+[클로저]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/24_%ED%81%B4%EB%A1%9C%EC%A0%80
+[클래스]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/25_%ED%81%B4%EB%9E%98%EC%8A%A4
+[es6]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/26_ES6%20%ED%95%A8%EC%88%98%EC%9D%98%20%EC%B6%94%EA%B0%80%20%EA%B8%B0%EB%8A%A5
+[배열]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/27_%EB%B0%B0%EC%97%B4
+[number]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/28_Number
 
 <br>
 
