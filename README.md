@@ -1,5 +1,5 @@
 
-# ♟️ Modern Jsvascript Deep Dive Study ♟️
+# ♟️ Modern Javascript Deep Dive Study ♟️
 
 
 #### 🚀 [season 1](https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/wiki/season-1)  
