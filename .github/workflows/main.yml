@@ -18,7 +18,7 @@ jobs:
         git fetch --prune --unshallow
         num_changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | wc -l)
         echo "before : $github.event.before"
-        echo "before : $github.sha
+        echo "before : $github.sha"
         echo "Changed files count: $num_changed_files"
         echo "::set-output name=num_changed_files::$num_changed_files"
         
