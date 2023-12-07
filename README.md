@@ -44,7 +44,7 @@
 
 | DAY 1 (토, 일)     | 
 | :--------------: |
-| 변수 |
+| [변수][r변수] |
 | 4.1 ~ 4.6  |
 
  4.7 식별자 네이밍 규칙, 그리고 5.5 새미콜론과 세미콜론 자동 삽입 기능은 빼고 진행합니다.**
@@ -57,7 +57,7 @@
 
 | DAY 2 (월)      | DAY 3 ( 수 )   | DAY 4 ( 목)      | DAY 5 (금)       | DAY 6 (토)      |
 | :--------------: | :-------------: | :----------------:| :----------------: | :------------:|
-| 표현식과 문             | 데이터 타입      | 데이터 타입        | 연산자         |    연산자      | 
+| [표현식과 문][r표현식과문]            | [데이터 타입][r데이터타입]      | [데이터 타입][r데이터타입]        | [연산자][r연산자]         |    [연산자][r연산자]      | 
 | 5.1 ~ 5.6  | 6.1 ~ 6.5 |6.6 ~ 6.10  |  7.1 ~ 7.5  | 7.6 ~ 7.13  |
 
 
@@ -68,7 +68,7 @@
 
 | DAY 7 (월)      | DAY 8 (화)       | DAY 9 (수)     | DAY 10 (목)      | DAY 11 (금)       | DAY 12 (토) |   
 | :--------------: | :-------------: | :----------------:| :----------------: | :------------:| :------------:|
-| 제어문            | 타입 변환과 단축 | 타입 변환과 단축  | 객체 리터럴         |  객체 리터럴     | 원시 값과 객체의 |
+| [제어문][r제어문]            | [타입 변환과 단축][r타입변환과단축] | [타입 변환과 단축][r타입변환과단축] | [객체 리터럴][r객체리터럴]         |  [객체 리터럴][r객체리터럴]      | [원시 값과 객체의](r원시값과객체의비교) |
 | 8.1 ~ 8.5  | 9.1 ~ 9.2  | 9.3 ~ 9.4 | 10.1 ~ 10.5 | 10.6 ~ 10.9| 11.1   |
 
 
@@ -78,7 +78,7 @@
 
 | DAY 13 (월)        | DAY 14 (화)         | DAY 15 (수)  | DAY 16 (목)       | DAY 17 (금)       |  DAY 18 (토)   |
 | :--------------: | :-------------: | :----------------:| :----------------: | :------------:| :------------:|
-| 함수              |  함수            | 함수               | 스코프               |  스코프     | 전역변수의 문제점 |
+| [함수][r함수]              |  [함수][r함수]            | [함수][r함수]               | [스코프][r스코프]               |  [스코프][r스코프]     | 전역변수의 문제점 |
 | 12.1 ~ 12.4.3 | 12.4.4 ~ 12.6 | 12.7   | 13.1 ~ 13.2 | 13.3 ~ 13.5  |14.1 ~ 14.3 |  
 
 
@@ -102,7 +102,16 @@
 
 ---
 
-
+[r변수]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/04_%EB%B3%80%EC%88%98
+[r표현식과문]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/05_%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC%20%EB%AC%B8
+[r데이터타입]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/06_%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%83%80%EC%9E%85
+[r연산자]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/07_%EC%97%B0%EC%82%B0%EC%9E%90
+[r제어문]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/08_%EC%A0%9C%EC%96%B4%EB%AC%B8
+[r타입변환과단축]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/09_%ED%83%80%EC%9E%85%20%EB%B3%80%ED%99%98%EA%B3%BC%20%EB%8B%A8%EC%B6%95%20%ED%8F%89%EA%B0%80
+[r객체리터럴]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/10_%EA%B0%9D%EC%B2%B4%20%EB%A6%AC%ED%84%B0%EB%9F%B4
+[r원시값과객체의비교]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/11_%EC%9B%90%EC%8B%9C%20%EA%B0%92%EA%B3%BC%20%EA%B0%9D%EC%B2%B4%EC%9D%98%20%EB%B9%84%EA%B5%90
+[r함수]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/12_%ED%95%A8%EC%88%98
+[r스코프]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/13_%EC%8A%A4%EC%BD%94%ED%94%84
 
 <br>
 
@@ -172,6 +181,8 @@
 ❗️ 끈기와 완주 배지는 중복적용되지 않습니다.
 
 <br>
+
+
 
 <br>
 
