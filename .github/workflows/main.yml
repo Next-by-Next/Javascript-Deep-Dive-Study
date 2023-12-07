@@ -15,8 +15,13 @@ jobs:
     - name: Count changed files
       id: count_files
       run: |
-        num_changed_files=$(git diff --name-only HEAD^..HEAD | wc -l)
+        git fetch --prune --unshallow
+        num_changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | wc -l)
+        echo "before : $github.event.before"
+        echo "before : $github.sha
+        echo "Changed files count: $num_changed_files"
         echo "::set-output name=num_changed_files::$num_changed_files"
+        
         
     - name: Check if only 1 file changed
       run: |
