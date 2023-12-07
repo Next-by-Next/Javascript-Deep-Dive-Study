@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
       
       - name: Count Changed Files
         id: count_files
         run: |
           git diff --numstat ${{ github.event.before }} ${{ github.sha }} > temp.diff
-          echo "Changed files count: $temp.diff"
           changed_files=$(wc -l < temp.diff)
+          echo "Changed files count: $temp.diff"
           echo "Changed files count: $changed_files"  
           echo "::set-output name=changed_files::$changed_files"
 
