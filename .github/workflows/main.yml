@@ -1,0 +1,27 @@
+name: Check Changed Files in PR
+
+on:
+  pull_request:
+    paths:
+      - '**/*' # 모든 경로에서 이벤트 감지
+
+jobs:
+  check_changed_files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Count Changed Files
+        id: count_files
+        run: echo "::set-output name=changed_files::$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | wc -l)"
+
+      - name: Check File Count
+        run: |
+          changed_files=${{ steps.count_files.outputs.changed_files }}
+          if [ $changed_files -eq 1 ]; then
+            echo "Only 1 file changed. Workflow continues."
+          else
+            echo "More than 1 file changed. Exiting the workflow."
+            exit 1
+          fi
