@@ -6,6 +6,7 @@
 
 - [문소희](https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/blob/main/docs/21_%EB%B9%8C%ED%8A%B8%EC%9D%B8%20%EA%B0%9D%EC%B2%B4/%EB%AC%B8%EC%86%8C%ED%9D%AC.md)
 - [장서윤](https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/blob/main/docs/21_%EB%B9%8C%ED%8A%B8%EC%9D%B8%20%EA%B0%9D%EC%B2%B4/%EB%B0%95%EB%85%B8%EC%A4%80.md)
+- [이나린](https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/blob/main/docs/21_%EB%B9%8C%ED%8A%B8%EC%9D%B8%20%EA%B0%9D%EC%B2%B4/%EC%9D%B4%EB%82%98%EB%A6%B0.md#4-%EC%A0%84%EC%97%AD-%EA%B0%9D%EC%B2%B4)
   
 ### 🥎 season 1
 
