@@ -246,7 +246,6 @@
 | <center>[나세현](https://github.com/e6d1fe)🏅🏆</center>            |✅|✅|✅|✅|✅|✅|
 | <center>[문소희](https://github.com/ccconac)🏅🏆</center>           |✅|✅|✅|✅|✅|✅|
 | <center>[이나린](https://github.com/narinn-star)🏅🏆</center>       |✅|✅|✅|✅|✅|✅|
-| <center>[심채윤](https://github.com/chaeyun-sim)🏅🏆</center>       |✅|✅|✅|  |✅|❗️|
 | <center>[장서윤](https://github.com/pipisebastian)🏅🏆</center>     |✅|✅|✅|✅|✅|✅|
 | <center>[한수지](https://github.com/nincoding)🏅🏆</center>         |✅|✅|✅|✅|✅|✅|
 | <center>[김경주](https://github.com/gaeaeg)🏅🏆</center>            |✅|✅|✅|✅|✅|✅|
@@ -254,6 +253,7 @@
 | <center>[김유나](https://github.com/yui880)🏆</center>              |✅|✅|✅|✅|✅|✅|
 | <center>[권차현](https://github.com/kwoncha)🏆</center>             |✅|✅|✅|✅|❗️|✅|
 | <center>[최성관](https://github.com/kwani6684)🏆</center>           |✅|✅|✅|  |✅|✅|
+| <center>[심채윤](https://github.com/chaeyun-sim)🏅</center>         |✅|✅|✅|  |✅|❗️|
 | <center>[최주용](https://github.com/wuzoo)🏅</center>               |❗️|✅|✅|✅|✅|❗️|
 | <center>[백세희](https://github.com/baeksehee)</center>            |✅|  |✅|✅|  |✅|
 ||
