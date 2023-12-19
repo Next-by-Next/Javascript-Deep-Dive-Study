@@ -1,0 +1,77 @@
+# 20.1 strict mode 란?
+
+### 암묵적 전역
+선언하지 않은 식별자에 값을 할당하면 전역객체의 '프로퍼티' 가 된다. 이는 변수가 아니다. 
+window.y = 20 처럼 해석되어, 전역객체의 프로퍼티가 되는 것.
+➡️변수를 선언할때는 꼭`let,const`를 사용하자
+
+### strict mode
+자바스크립트 언어의 문법을 더 엄격히 적용하여 오류를 발생시킬 가능성이 높거나 자바스크립트 엔진의 최적화 작업에 문제를 일으킬 수 있는 코드에 대해 명시적인 에러를 발생시킴
+
+# 20.2 strict mode 의 적용
+`use strict` 를 전역의 선두 또는 함수의 선두에 추가한다.
+
+# 20.3 전역에 strict mode를 적용하는 것은 피하자
+- 전역에 적용한 strict mode 는 스크립트 단위로 적용된다.
+- strict mode 와 non-strict mode 스크립트를 혼용하는것은 오류를 발생시킬 수 있다
+➡️ 이러한 경우 즉시 실행함수로 스크립트 전체를 감싸서 스코프를 구분하고 즉시 실행함수의 선두에 strict mode를 적용시킨다
+```js
+(function(){
+'use strict';
+
+// Do something...
+}());
+
+```
+# 20.4 함수 단위로 strict mode를 적용하는 것도 피하자
+- 어떤 함수는 strict mode를 적용하고 어떤 함수는 적용하지 않는 것은 바람직하지 않으며 모든 함수에 일일이 strict mode를 적용하기도 번거롭다.
+➡️ strict mode는 즉시 실행 함수로 감싼 스크립트 단위로 적용하는 것이 바람직하다.
+
+# 20.5 strict mode 가 발생시키는 에러
+
+## 1. 암묵적 전역 - Reference Error
+```js
+(function(){
+'use strict' ;
+
+x=1; 
+console.log(x); //ReferenceError : x is not defined
+}());
+```
+
+## 2. 변수 함수 매개변수의 삭제 - SyntaxError
+- delete 연산자로 삭제 할 경우
+```js
+function(){
+    'use strict';
+
+    var x = 1;
+    delete x; // SyntaxError : Delete of an unqualified indentifier in strict mode.
+}
+```
+
+## 3. 매개변수 이름의 중복 - SyntaxError
+```js
+function(x,x){ //SyntaxError : Duplicate parameter name not allowed in this context
+    return x+x;
+}
+
+```
+
+## 4. with문의 사용 - SyntaxError
+- with 문은 전달된 객체를 스코프에 추가한다.
+- with 문은 동일한 객체의 프로퍼티를 반복해서 사용할 때 개체이름 생략할 수 있어서 코드 간단해지지만 성능과 가독성 나빠지므로 쓰지 말 것.
+
+# 20.6 strict mode 적용에 의한 변화
+
+## 1. 일반함수의 this
+- strict mode 에서 this 를 사용하면 undefined가 바인딩 됨
+- 에러는 X
+
+## 2. arguments 객체
+- strict mode에서는 매개변수에 전달된 인수를 재할당하여 변경해도 arguments 객체에 반영되지 않는다.
+
+# 느낀점
+
+EsLint와 airbnb 코드 컨벤션을 따른다면 잘 겪지 않을 내용 같다.
+그냥 이런게 있다 라고만 알아두자.
