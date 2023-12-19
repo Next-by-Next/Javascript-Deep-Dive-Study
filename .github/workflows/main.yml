@@ -1,0 +1,32 @@
+name: Check Changed Files in PR
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  check_files:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Count changed files
+      id: count_files
+      run: |
+        git fetch --prune --unshallow
+        num_changed_files=$(git diff --name-only origin/${{ github.base_ref }} ${{ github.sha }} | wc -l)
+        echo "::set-output name=num_changed_files::$num_changed_files"
+        
+        
+        
+    - name: Check if only 1 file changed
+      run: |
+        changed_files=${{ steps.count_files.outputs.num_changed_files }}
+        if [ $changed_files -ne 1 ]; then
+          echo "More than 1 file changed. Exiting."
+          exit 1
+        else
+          echo "Exactly 1 file changed. Proceeding."
+        fi
