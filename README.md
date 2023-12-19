@@ -255,9 +255,9 @@
 | <center>[권차현](https://github.com/kwoncha)</center>               |✅|✅|✅|✅|❗️|✅|❗️|✅| |
 | <center>[김유나](https://github.com/yui880)</center>                |✅|✅|✅|✅|✅|✅|✅|✅| |
 | <center>[최성관](https://github.com/kwani6684)  </center>           |✅|✅|✅|  |✅|✅| |❗️|
-| <center>[백세희](https://github.com/baeksehee)</center>             |✅|  |✅|✅|  |✅| |
+| <center>[백세희](https://github.com/baeksehee)</center>             |✅|  |✅|✅|  |✅| |  | |✅|  
 ||
-|     <center>제출</center>                                       | 18|17|17|16|16|17|13|16|10|10|
+|     <center>제출</center>                                       | 18|17|17|16|16|17|13|16|10|11|
 
 <br>
 
