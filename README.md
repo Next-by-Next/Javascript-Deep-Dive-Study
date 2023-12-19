@@ -252,7 +252,7 @@
 | <center>[김유나](https://github.com/yui880)🏆</center>              |✅|✅|✅|✅|✅|✅|✅|✅| |
 | <center>[권차현](https://github.com/kwoncha)</center>               |✅|✅|✅|✅|❗️|✅|❗️|✅| |
 | <center>[심채윤](https://github.com/chaeyun-sim)🏅</center>         |✅|✅|✅|  |✅|❗️|✅|✅|✅| 
-| <center>[문소희](https://github.com/ccconac)🏅</center>             |✅|✅|✅|✅|✅|✅|  |  |✔️|
+| <center>[문소희](https://github.com/ccconac)🏅</center>             |✅|✅|✅|✅|✅|✅|  |  |❗️|
 | <center>[변지인](https://github.com/byunjiin)🏅</center>            |✅|✅|  |✅|✅|✅| |✅|  |
 | <center>[최성관](https://github.com/kwani6684)  </center>           |✅|✅|✅|  |✅|✅| |❗️|
 | <center>[백세희](https://github.com/baeksehee)</center>             |✅|  |✅|✅|  |✅| |
