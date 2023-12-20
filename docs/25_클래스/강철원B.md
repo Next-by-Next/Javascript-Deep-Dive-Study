@@ -8,10 +8,11 @@
 
 [1. 클래스는 프로토타입의 문법적 설탕인가?](#1-클래스는-프로토타입의-문법적-설탕인가)   
 [2. 클래스 정의](#2-클래스-정의)   
-[3. 클래스](#3-클래스)   
+[3. 클래스 호이스팅](#3-클래스-호이스팅)   
 [4. 인스턴스 생성](#4-인스턴스-생성)  
 [5. 메서드](#5-메서드)   
-
+[6. 클래스의 인스턴스 생성 과정](#6-클래스의-인스턴스-생성-과정)
+[7. 프로퍼티](#7-프로퍼티)
 
 
 ---
@@ -257,4 +258,157 @@ Reflect.has({ a: 1 }, 'a'); // -> true
 4. `for...in` 문이나 `Object.keys` 메서드 등으로 열거할 수 없다. 즉 프로퍼티의 열거 가능 여부를 나타내며, 불리언 값을 갖는 프로퍼티 어트리뷰트 `[[Enumerable]]`의 값이 `false`다.
 5. 내부 메서드 `[[Construct]]`를 갖지 않는 `non-constructor`다. 따라서 `new` 연산자와 함께 호출할 수 없다.
 
+## 6. 클래스의 인스턴스 생성 과정
 
+### 1) 인스턴스 생성과 this 바인딩
+
+`new`연산자와 함께 클래스 호출 시, constructor 실행 이전에 인스턴스(빈 객체)가 생성되고, 인스턴스의 프로토타입으로 클래스의 `prototype`객체가 설정됩니다. 그리고 인스턴스가 `this`에 바인딩 됩니다.    
+
+### 2) 인스턴스 초기화
+
+`constructor`가 실행되어 `this`에 바인딩 된 인스턴스를 초기화합니다.
+
+### 3) 인스턴스 반환
+
+완성된 인스턴스가 바인딩 된 `this`가 암묵적으로 반환됩니다.    
+
+```js
+class Person {
+  // 생성자
+  constructor(name) {
+    // 1. 암묵적으로 인스턴스가 생성되고 this에 바인딩된다.
+    console.log(this); // Person {}
+    console.log(Object.getPrototypeOf(this) === Person.prototype); // true
+
+    // 2. this에 바인딩되어 있는 인스턴스를 초기화한다.
+    this.name = name;
+
+    // 3. 완성된 인스턴스가 바인딩된 this가 암묵적으로 반환된다.
+  }
+}
+```
+
+## 7. 프로퍼티
+
+### 1) 인스턴스 프로퍼티
+
+>인스턴스 프로퍼티는 `constructor`내부에서 정의해야 합니다.
+```js
+class Person {
+  constructor(name) {
+    // 인스턴스 프로퍼티
+    this.name = name;
+  }
+}
+
+const me = new Person('Lee');
+console.log(me); // Person {name: "Lee"}
+```
+
+`constructor` 내부 코드가 실행되기 이전에 `constructor 내부의 `this`에는 이미 클래스가 암묵적으로 생성한 인스턴스인 빈 객체가 바인딩되어 있습니다.    
+
+생성자 함수에서 생성자 함수가 생성할 인스턴스의 프로퍼티를 정의하는 것과 마찬가지로 `constructor`내부에서 `this`에 인스터스 프로퍼티를 추가합니다. 이로써 클래스는 암묵적으로 생성한 빈 객체, 즉 인스턴스에 프로퍼티가 추가되어 인스턴스가 초기화됩니다.    
+
+### 2) 접근자 프로퍼티
+
+접근자 프로퍼티는 자체적으로 값([[Value]] 내부 슬롯)을 갖지 않고 다른 데이터 프로퍼티의 값을 읽거나 저장할 때 사용하는 접근자 함수로 구성된 프로퍼티입니다.   
+
+```js
+const person = {
+  // 데이터 프로퍼티
+  firstName: 'Ungmo',
+  lastName: 'Lee',
+
+  // fullName은 접근자 함수로 구성된 접근자 프로퍼티다.
+  // getter 함수
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+  // setter 함수
+  set fullName(name) {
+    // 배열 디스트럭처링 할당: "36.1. 배열 디스트럭처링 할당" 참고
+    [this.firstName, this.lastName] = name.split(' ');
+  }
+};
+
+// 데이터 프로퍼티를 통한 프로퍼티 값의 참조.
+console.log(`${person.firstName} ${person.lastName}`); // Ungmo Lee
+
+// 접근자 프로퍼티를 통한 프로퍼티 값의 저장
+// 접근자 프로퍼티 fullName에 값을 저장하면 setter 함수가 호출된다.
+person.fullName = 'Heegun Lee';
+console.log(person); // {firstName: "Heegun", lastName: "Lee"}
+
+// 접근자 프로퍼티를 통한 프로퍼티 값의 참조
+// 접근자 프로퍼티 fullName에 접근하면 getter 함수가 호출된다.
+console.log(person.fullName); // Heegun Lee
+
+// fullName은 접근자 프로퍼티다.
+// 접근자 프로퍼티는 get, set, enumerable, configurable 프로퍼티 어트리뷰트를 갖는다.
+console.log(Object.getOwnPropertyDescriptor(person, 'fullName'));
+// {get: ƒ, set: ƒ, enumerable: true, configurable: true}
+```
+
+### 3) 클래스 필드 정의 제안
+
+클래스 필드(필드 또는 멤버)는 클래스 기반 객체지향 언어에서 클래스가 생성할 인스턴스의 프로퍼티를 가리키는 용어입니다.
+
+>자바의 클래스 필드는 마치 클래스 내부에서 변수처럼 사용됩니다.
+```java
+// 자바의 클래스 정의
+public class Person {
+  // ① 클래스 필드 정의
+  // 클래스 필드는 클래스 몸체에 this 없이 선언해야 한다.
+  private String firstName = "";
+  private String lastName = "";
+
+  // 생성자
+  Person(String firstName, String lastName) {
+    // ③ this는 언제나 클래스가 생성할 인스턴스를 가리킨다.
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  public String getFullName() {
+    // ② 클래스 필드 참조
+    // this 없이도 클래스 필드를 참조할 수 있다.
+    return firstName + " " + lastName;
+  }
+}
+```
+
+자바스크립트의 클래스에서 인스턴스 프로퍼티를 선언하고 초기화하려면 반드시 `constructor` 내부에서 `this`에 프로퍼티를 추가해야 합니다. 하지만 자바의 클래스에서는 위 예제의 ①과 같이 클래스 필드를 마치 변수처럼 클래스 몸체에 this없이 선언합니다. 자바스크립트의 클래스 몸체에는 메서드만 선언할 수 있습니다. 따라서 클래스 몸체에 자바와 유사하게 클래스 필드를 선언하면 문법 에러가 발생합니다.
+
+```js
+class Person {
+  // 클래스 필드 정의
+  name = 'Lee';
+}
+
+const me = new Person('Lee');
+```
+
+하지만 위 예제는 최신 브라우저 또는 Node.js(12 이상)에서 문법 에러가 발생하지 않고 정상 동작합니다.([참고](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes))
+클래스 몸체에서 클래스 필드를 정의할 수 있는 클래스 필드 정의 제안은 아직 ECMAScript의 정식 표준 사양으로 승급되지 않았습니다(4단계)
+하지만 최신 브라우저와 최신 Node.js에서는 다음 예제와 같이 클래스 필드를 클래스 몸체에 정의할 수 있다.
+
+```js
+class Person {
+  // 클래스 필드 정의
+  name = 'Lee';
+  age = 23;
+}
+
+const me = new Person();
+console.log(me); // Person {name: "Lee" , age: 23}
+console.log(me.age); // 23
+```
+
+>클래스 몸체에서 클래스 필드를 정의하는 경우 this에 클래스 필드를 바인딩해서는 안 된다. this는 클래스의 constructor와 메서드 내에서만 유효하다.
+```js
+class Person {
+  // this에 클래스 필드를 바인딩해서는 안된다.
+  this.name = ''; // SyntaxError: Unexpected token '.'
+}
+
+```
