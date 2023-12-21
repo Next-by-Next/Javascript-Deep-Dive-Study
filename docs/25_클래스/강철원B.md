@@ -11,9 +11,9 @@
 [3. 클래스 호이스팅](#3-클래스-호이스팅)   
 [4. 인스턴스 생성](#4-인스턴스-생성)  
 [5. 메서드](#5-메서드)   
-[6. 클래스의 인스턴스 생성 과정](#6-클래스의-인스턴스-생성-과정)
-[7. 프로퍼티](#7-프로퍼티)
-
+[6. 클래스의 인스턴스 생성 과정](#6-클래스의-인스턴스-생성-과정)   
+[7. 프로퍼티](#7-프로퍼티)   
+[8. 상속에 의한 클래스-확장](#8-상속에-의한-클래스-확장)
 
 ---
 
@@ -411,4 +411,78 @@ class Person {
   this.name = ''; // SyntaxError: Unexpected token '.'
 }
 
+```
+
+## 8. 상속에 의한 클래스 확장
+
+### 1) 클래스 상속과 생성자 함수 상속
+
+상속에 의한 클래스 확장은 지금까지 살펴본 프로토타입 기반 상속과 다른 개념입니다.    
+프로토타입 기반 상속은 프로토타입 체인을 통해 다른 객체의 자산을 상속받는 개념이지만
+상속에 의한 클래스 확장은 기존 클래스를 상속받아 새로운 클래스를 확장하여 정의하는 것입니다.    
+
+<img width="492" alt="image" src="https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/ef1d58c6-1892-4398-ab26-ba7f2a00bf99">
+
+
+
+### 2) extends 키워드
+
+>상속을 통해 클래스를 확장하려면 extends 키워드를 사용하여 상속받을 클래스를 정의한다.
+```js
+// 수퍼(베이스/부모)클래스
+class Base {}
+
+// 서브(파생/자식)클래스
+class Derived extends Base {}
+```
+
+상속을 통해 확장된 클래스를 서브클래스라 부르고, 서브클래스에게 상속된 클래스를 수퍼클래스라 부릅니다.
+서브클래스를 파생 클래스 또는 자식 클래스, 수퍼클래스를 베이스 클래스 또는 부모 클래스라고 부르기도 합니다.
+
+### 3) 동적 상속
+
+extends 키워드는 클래스뿐만 아니라 생성자 함수를 상속받아 클래스를 확장할 수 있습니다. (단, extends 키워드 앞에는 반드시 클래스가 와야 함)    
+```js
+// 생성자 함수
+function Base(a) {
+  this.a = a;
+}
+
+// 생성자 함수를 상속받는 서브클래스
+class Derived extends Base {}
+
+const derived = new Derived(1);
+console.log(derived); // Derived {a: 1}
+
+```
+
+### 5) super 키워드
+
+super 키워드는 함수처럼 호출할 수도 있고 this와 같이 식별자처럼 참조할 수 있는 특수한 키워드입니다.
+super는 다음과 같이 동작합니다.
+
+- super를 호출하면 수퍼클래스의 `constructor(super-constructor)`를 호출한다.
+- super를 참조하면 수퍼클래스의 메서드를 호출할 수 있다.
+
+📌 `super` 호출
+`super`를 호출하면 수퍼클래스의 `constructor(super-constructor)`를 호출합니다. 다음 예제와 같이 수퍼클래스의 `constructor` 내부에서 추가한 프로퍼티를 그대로 갖는 인스턴스를 생성한다면 서브클래스의 `constructor`를 생략할 수 있습니다.
+이때 `new` 연산자와 함께 서브클래스를 호출하면서 전달한 인수는 모두 서브클래스에 암묵적 정의된 `constructor`의 `super`호출을 통해 수퍼클래스의 `constructor`에 전달됩니다.    
+
+```js
+// 수퍼클래스
+class Base {
+  constructor(a, b) {
+    this.a = a;
+    this.b = b;
+  }
+}
+
+// 서브클래스
+class Derived extends Base {
+  // 다음과 같이 암묵적으로 constructor가 정의된다.
+  // constructor(...args) { super(...args); }
+}
+
+const derived = new Derived(1, 2);
+console.log(derived); // Derived {a: 1, b: 2}
 ```
