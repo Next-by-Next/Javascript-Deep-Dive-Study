@@ -164,3 +164,277 @@ console.log(Object.getOwnPropertyDescriptors(arr));
 //   '2': { value: 3, writable: true, enumerable: true, configurable: true },
 //   length: { value: 3, writable: true, enumerable: false, configurable: false }
 // }
+```
+
+<br>
+
+---
+
+## 6. 배열 요소의 추가와 갱신
+
+### 추가 & 갱신
+
+- 배열도 `객체` 이므로, 객체의 프로퍼티를 동적으로 추가할 수 있는 것처럼 배열에도 요소를 동적으로 추가할 수 있습니다.
+- 만약, 현재 배열의 length 프로퍼티 값보다 큰 인덱스로 새로운 요소를 추가하면 희소 배열이 됩니다.
+  - 명시적으로, 값이 할당되지 않은 희소 배열의 요소들은 생성되지 않습니다.  ( 즉, length 프로퍼티 값은 변하나 실질적인 배열안에 요소의 개수는 변함없다. )
+- 0이상 정수(또는 문자열 형태 숫자) 로 인덱싱에 사용해야 합니다.
+  - 만약, 정수 이외의 값을 인덱싱에 사용하면 요소가 생성되는 것이 아니라, 프로퍼티가 생성됩니다.
+  - 프로퍼티는 length 프로퍼티 값에 영향을 주지 않습니다.
+
+<br />
+
+## 7. 배열 요소의 삭제
+
+- 배열도 객체이므로 배열의 특정 요소를 삭제하기 위해 `delete 연산자` 를 사용할 수 있습니다.
+- delete 연산자를 통해 배열의 요소를 삭제하는 것은 객체의 프로퍼티를 삭제하는 개념과 같습니다.
+  - 요소의 값이 삭제되면 희소 배열이 됩니다. (이 때, length 프로퍼티에는 영향을 주지 않습니다)
+- 희소 배열을 만들지 않으면서 배열을 삭제하고 싶을 경우 `Array.prototype.splice`메서드를 사용하는 것을 추천합니다.
+
+
+## 8. 배열 메서드
+
+> 자바스크립트 배열은 다양한 `빌트인 메서드를 제공`
+
+- 배열 생성자 함수는 다양한 `배열 정적 메서드를 제공`
+- 배열 객체의 Array.prototype 은 `프로토타입 메서드를 제공`
+
+
+<br />
+
+### Array.isArray 메서드
+
+> Array 생성자 함수의 정적 메서드
+
+- 전달된 인수가 배열이면 `true` , 배열이 아니면 `false` 를 반환
+
+  ```jsx
+  console.log(Array.isArray([])); // true
+  console.log(Array.isArray([1, 2])); // true
+  console.log(Array.isArray(new Array())); // true
+
+  console.log(Array.isArray(null)); // false
+  console.log(Array.isArray(1)); // false
+  console.log(Array.isArray("string")); // false
+  console.log(Array.isArray(undefined)); // false
+  console.log(Array.isArray(true)); // false
+  console.log(Array.isArray({})); // false
+  ```
+
+<br />
+
+### Array.prototype.indexOf 메서드
+
+- 원본 배열에서 인수로 전달한 `요소를 검색하여 인덱스를 반환`
+
+  - 검색되는 요소가 중복되어 여러 개일 경우 `첫 번째 검색된 요소의 인덱스를 반환`
+  - 원본 배열에 검색할 요소가 존재하지 않으면 `-1 반환`
+  - `배열에 특정 요소가 존재하는지 확인할 때 유용`
+
+  ```jsx
+  const arr = [1, 2, 2, 3];
+
+  console.log(arr.indexOf(2)); // 1  ( 2를 검색 )
+  console.log(arr.indexOf(2, 2)); // 2  ( 2번 째 인덱스 2를 검색)
+  console.log(arr.indexOf(-1)); // -1 ( 존재하지 않는 요소 검색 )
+  ```
+
+<br />
+
+### Array.prototype.push 메서드
+
+- 인수로 전달받은 `모든 값을 원본 배열 마지막 요소로 추가` , `변경된 length 프로퍼티 값을 반환`
+- `mutator method`
+  - 부수 효과가 있으므로, ES6의 스프레드 문법을 사용하는 편이 좋습니다.
+- 성능 측면에서 배열에 추가할 요소가 하나라면 마지막 배열 요소를 직접 추가하는 방법이 더 빠릅니다.
+
+  ```jsx
+  const arr = [1, 2];
+
+  arr.push([3, 4]);
+  console.log(arr); // [ 1, 2, [ 3, 4 ] ]
+
+  arr.push("a", "b");
+  console.log(arr); // [ 1, 2, [ 3, 4 ], 'a', 'b' ]
+
+  const arr2 = [...arr, true];
+  console.log(arr2); // [ 1, 2, [ 3, 4 ], 'a', 'b', true ]
+  ```
+
+<br />
+
+### Array.prototype.pop 메서드
+
+- 원본 배열에서 `마지막 요소를 제거하고 제거한 요소를 반환`
+  - 원본 배열이 `빈 배열이면 undefined 반환`
+- `mutator method`
+
+  ```jsx
+  const arr = [1, 2];
+
+  let pop = arr.pop();
+  console.log(arr); // [ 1 ]
+  console.log(pop); // 2
+  ```
+
+- push 메서드와 혼합해서 `스택(stack) 자료구조` 를 구현할 수 있다.
+
+  ```jsx
+  // 클래스로 구현한 push와 pop 메서드를 활용한 "스택 자료구조"
+  class Stack {
+    #array;
+
+    constructor(array = []) {
+      if (!Array.isArray(array)) {
+        throw new TypeError(`${array} is not an array !`);
+      }
+      this.#array = array;
+    }
+
+    push(value) {
+      return this.#array.push(value);
+    }
+
+    pop() {
+      return this.#array.pop();
+    }
+
+    entries() {
+      return [...this.#array];
+    }
+  }
+
+  const stack = new Stack([1, 2]);
+  console.log(stack.entries()); // [ 1, 2 ]
+
+  stack.push(3);
+  console.log(stack.entries()); // [ 1, 2, 3 ]
+
+  let pop = stack.pop();
+  console.log(stack.entries(), pop); // [ 1, 2 ] 3
+  ```
+
+<br />
+
+### Array.prototype.unshift 메서드
+
+- 인수로 전달 받은 `모든 값을 원본 배열의 선두에 추가`하고 `변경된 length 프로퍼티 값을 반환`
+- `mutator mehtod`
+
+  - 부수 효과가 있으므로, ES6의 스프레드 문법을 사용하는 편이 좋습니다.
+
+  ```jsx
+  const arr = [1, 2];
+
+  let result = arr.unshift(3, 4);
+  console.log(result); // 4
+  console.log(arr); // [ 3, 4, 1, 2 ]
+
+  const newArr = [100, ...arr];
+  console.log(newArr); // [ 100, 3, 4, 1, 2 ]
+  ```
+
+<br />
+
+### Array.prototype.shift 메서드
+
+- 원본 배열에서 `첫 번째 요소를 제거하고 제거한 요소를 반환`
+  - 원본 배열이 빈 배열이면 `undefined 반환`
+- `mutator method`
+
+  ```jsx
+  const arr = [1, 2];
+
+  let shift = arr.shift();
+  console.log(shift); // 1
+  console.log(arr); // [ 2 ]
+  ```
+
+  ### Array.prototype.concat 메서드
+
+- 인수로 전달된 값들(배열 or 원시값)을 `원본 배열의 마지막 요소로 추가한 새로운 배열을 반환`
+  - 인수로 전달한 값이 배열인 경우, 배열을 해체하여 새로운 배열의 요소로 추가
+- push 메서드와 unshift 메서드는 concat 메서드로 대체 가능
+  - 다만, 차이점은 concat 메서드는 원본 배열을 직접 변경하지 않고, 새로운 배열을 반환하는 것
+  - 따라서, push 와 unshift 메서드의 경우 원본 배열은 다른 변수에 복사해놓고 사용해야 안전
+- ES6의 스프레드 문법으로 대체 가능합니다.
+
+  ```jsx
+  const arr1 = [1, 2];
+  const arr2 = [3, 4];
+
+  const arr3 = arr1.concat(arr2);
+  console.log(arr3); // [ 1, 2, 3, 4 ]
+  console.log(arr1, arr2); // [ 1, 2 ] [ 3, 4 ]
+
+  const arr4 = arr3.concat("a", true);
+  console.log(arr4); // [ 1, 2, 3, 4, 'a', true ]
+  ```
+
+<br />
+
+### Array.prototype.splice 메서드
+
+- 원본 배열의 `중간에 요소를 추가`하거나 `중간에 있는 요소를 제거`하는 경우 사용
+- 3개의 매개변수를 가집니다.
+
+  - `start` : 삭제 시작 인덱스
+  - `deleteCount` : 시작 인덱스로부터 삭제할 요소의 개수
+  - `items` : 요소를 삭제 후, 삭제한 인덱스로부터 추가할 데이터
+
+  ```jsx
+  const arr = [1, 2, 3, 4];
+
+  const result = arr.splice(2, 1, 300);
+
+  console.log(result); // [ 3 ]
+  console.log(arr); // [ 1, 2, 300, 4 ]
+  ```
+
+- 배열에서 특정 요소를 제거하려면 Array.prototype.indexOf 와 혼합해서 구현할 수 있습니다.
+
+  ```jsx
+  const arr = [1, 2, 3, 1, 2];
+
+  function remove(array, item) {
+    const index = array.indexOf(item);
+
+    if (index !== -1) array.splice(index, 1);
+
+    return array;
+  }
+
+  console.log(remove(arr, 2)); // [ 1, 3, 1, 2 ] << 1번째 인덱스에 요소 2가 삭제된 후의 배열을 반환
+  console.log(remove(arr, 100)); // [ 1, 3, 1, 2 ] << 100은 존재하지 않으므로 삭제된 요소는 없음
+  ```
+
+<br />
+
+### Array.prototype.slice 메서드
+
+- 인수로 전달된 `범위의 요소들을 복사하여 배열로 반환`
+- `accessor method`
+- 2개의 매개변수를 가집니다.
+
+  - `start` : 복사 시작할 인덱스
+  - `end` : 복사 끝 인덱스
+
+  ```jsx
+  const arr = [1, 2, 3];
+
+  console.log(arr.slice(1, 3)); // [ 2, 3 ]
+  console.log(arr); // [ 1, 2, 3 ]
+  ```
+
+- `얕은 복사(shallow copy)를 통해 새로운 배열을 생성`
+
+  ```jsx
+  const arr = [1, 2, 3];
+  const shallowCopy = arr.slice();
+
+  shallowCopy.splice(0, 1); // 복사본 배열 첫 번째 요소 삭제
+  console.log(shallowCopy); // [ 2, 3 ]
+  console.log(arr); // [ 1, 2, 3 ]
+  ```
+
+<br />
+
