@@ -278,4 +278,63 @@
 [rnumber]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/28_Number
 
 <br>
+<br>
 
+---
+
+#  📕 part 3 (시즌 2)
+
+### 33장 Symbol ~ 43장 Ajax
+
+<br>
+
+> 총기간 : 1 / 02 ~ 1 / 26
+
+---
+
+> **1주차**  ( 01 / 02 ~ 01 / 05 )
+
+| DAY 1 ( 화 )      | DAY 2 ( 수 )   | DAY 3 ( 목 )      | DAY 4 ( 금 )       |
+| :--------------: | :-------------: | :----------------:| :----------------: | 
+| [Symbol][rsymbol]   | [Symbol][rsymbol] |  [이터러블][r이터러블]   | [이터러블][r이터러블]      | 
+| 33.1~33.3           | 33.4 ~ 33.6       |   34.1 ~ 34.3        | 34.4 ~ 34.6           |  
+
+---
+
+
+> **2주차**  ( 01 / 08 ~ 01 / 12 )
+
+| DAY 5 ( 월 )           | DAY 6 ( 화 )           | DAY 7 ( 수 )                            | DAY 8 ( 목 )                          | DAY 9 ( 금 )      | 
+| :--------------:       | :-------------:       | :----------------:                     | :----------------:                    | :------------:|
+| [Set과 Map][rset과map]  | [Set과 Map][rset과map] |  [브라우저의 렌더링 과정][r브라우저의렌더링과정] | [브라우저의 렌더링 과정][r브라우저의렌더링과정]   | [브라우저의 렌더링 과정][r브라우저의렌더링과정]     
+| 37.1                   | 37.2                  |  38.1 ~ 38.3                          | 38.4 ~ 38.6                            |               38.7 ~ 38.9  |
+
+---
+
+> **3주차**  ( 01 / 15 ~ 01 / 19 )
+
+| DAY 10 ( 월 )           | DAY 11 ( 화 )           | DAY 12 ( 수 )     | DAY 13 ( 목 )       | DAY 14 ( 금 )   | 
+| :--------------:       | :-------------:       | :----------------: | :----------------:  | :------------:|
+| [DOM][rdom]            | [DOM][rdom]           |  [DOM][rdom]       |  [DOM][rdom]        | [DOM][rdom]    | 
+| 39.1                   | 39.2.1 ~ 39.2.3       |  39.2.4 ~ 39.2.6   |    39.3             | 39.4 ~ 39.6.2  |       
+
+---
+
+> **4주차**  ( 01 / 22 ~ 01 / 26 )
+
+| DAY 15 ( 월 )           | DAY 16 ( 화 )           | DAY 17 ( 수 )     | DAY 18 ( 목 )                   | DAY 19 ( 금 )   | 
+| :--------------:       | :-------------:       | :----------------: | :----------------:              | :------------:|
+| [DOM][rdom]            | [DOM][rdom]           |  [DOM][rdom]       |  [비동기 프로그래밍][r비동기프로그래밍]  | [Ajax][rajax]    | 
+| 39.6.3 ~ 39.6.9        | 39.7                  |  39.8 ~ 39.9       |    42                           | 43  |       
+
+---
+
+[rsymbol]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/33_7%EB%B2%88%EC%A7%B8%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%83%80%EC%9E%85%20Symbol
+[r이터러블]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/34_%EC%9D%B4%ED%84%B0%EB%9F%AC%EB%B8%94
+[r스프레드문법]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/35_%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C%20%EB%AC%B8%EB%B2%95
+[r디스트럭처링할당]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/36_%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81%20%ED%95%A0%EB%8B%B9
+[rset과map]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/37_Set%EA%B3%BC%20Map
+[r브라우저의렌더링과정]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/38_%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98%20%EB%A0%8C%EB%8D%94%EB%A7%81%20%EA%B3%BC%EC%A0%95
+[rdom]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/39_DOM
+[r비동기프로그래밍]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/42_%EB%B9%84%EB%8F%99%EA%B8%B0%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D
+[rajax]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/43_Ajax
