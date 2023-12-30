@@ -438,3 +438,242 @@ console.log(Object.getOwnPropertyDescriptors(arr));
 
 <br />
 
+
+
+## 9. 배열 고차 함수
+
+`고차함수`는 함수를 인수로 전달받거나 함수를 반환하는 함수를 말합니다.    
+자바스크립트의 함수는 일급 객체이므로 함수를 값처럼 인수로 전달할 수 있으며 반환할 수도 있습니다. 고차 함수는 외부 상태의 변경이나 가변데이터를 피하고 `불변성을 지향`하는 함수형 프로그래밍에 기반을 두고 있습니다.     
+
+
+함수형 프로그래밍은 순수 함수와 보조 함수의 조합을 통해 로직 내에 존재하는 조건문과 반복문을제거하여 복잡성을 해결하고 변수의 사용을 억제하여 상태 변경을 피하려는 프로그래밍 패러다임입니다.     
+함수형 프로그래밍은 결국 순수 함수를 통해 부수 효과를 최대한 억제하여 오류를 피하고 프로그래밍의 안정성을 높이려는 노력의 일환입니다.    
+
+
+### 1) sort
+sort 메서드는 배열의 요소를 정렬합니다. 원본 배열을 직접 변경하여 정렬된 배열을 반환합니다.
+
+sort 메서드는 시본적으로 오름차순으로 정렬합니다.
+
+```js
+
+const fruits = ['Banana', 'Orange', 'Apple'];
+
+// 오름차순(ascending) 정렬
+fruits.sort();
+
+// sort 메서드는 원본 배열을 직접 변경한다.
+console.log(fruits); // ['Apple', 'Banana', 'Orange']
+한글 문자열인 요소도 오름차순으로 정렬된다.
+```
+
+
+sort 메서드는 유니코드 코드 포인트의 순서를 따라 정렬합니다. 하지만 숫자의 크기와 유니코드 순서와 일치하지 않기 때문에 의도하는 대로 정렬되지 않을 수 있습니다. sort 메서드는 배열의 요소를 일시적으로 문자열로 변환한 후 정렬합니다.    
+
+```js
+['2', '1'].sort(); // -> ["1", "2"]
+[2, 1].sort();     // -> [1, 2]
+
+['2', '10'].sort(); // -> ["10", "2"]
+[2, 10].sort();     // -> [10, 2]
+```
+
+
+### 2) forEach
+
+forEach 메서드는 for 문을 대체할 수 있는 고차 함수입니다. forEach 메서드는 자신의 내부에서 반복문을 실행합니다.     
+forEach 메서드는 내부에서 반복문을 통해 자신을 호출한 배열을 순회하면서 수행해야 할 처리를 콜백 함수로 전달받아 반복 호출합니다.
+
+```js
+//for문
+const numbers = [1, 2, 3];
+let pows = [];
+
+// for 문으로 배열 순회
+for (let i = 0; i < numbers.length; i++) {
+  pows.push(numbers[i] ** 2);
+}
+console.log(pows); // [1, 4, 9]
+
+
+//forEach문
+const numbers = [1, 2, 3];
+let pows = [];
+
+// forEach 메서드는 numbers 배열의 모든 요소를 순회하면서 콜백 함수를 반복 호출한다.
+numbers.forEach(item => pows.push(item ** 2));
+console.log(pows); // [1, 4, 9]
+```
+
+위 예제에서 배열의 요소가 3개이므로 콜백 함수도 3번 호출합니다.
+
+forEach 메서드의 콜백 함수는 forEach 메서드를 호출한 배열의 요소값, 인덱스, forEach 메서드를 호출한 배열 자체, 즉 this를 순차적으로 전달받을 수 있습니다.
+
+### 3) map
+
+map 메서드는 자신을 호출한 배열의 모든 요소를 순회하면서 인수로 전달받은 콜백 함수를 반복 호출합니다. 그리고 콜백 함수의 반환값들로 구성된 새로운 배열을 반환합니다. 이때 원본 배열을 변경되지 않습니다.    
+   
+```js
+const numbers = [1, 4, 9];
+
+// map 메서드는 numbers 배열의 모든 요소를 순회하면서 콜백 함수를 반복 호출한다.
+// 그리고 콜백 함수의 반환값들로 구성된 새로운 배열을 반환한다.
+const roots = numbers.map(item => Math.sqrt(item));
+
+// 위 코드는 다음과 같다.
+// const roots = numbers.map(Math.sqrt);
+
+// map 메서드는 새로운 배열을 반환한다
+console.log(roots);   // [ 1, 2, 3 ]
+// map 메서드는 원본 배열을 변경하지 않는다
+console.log(numbers); // [ 1, 4, 9 ]
+```
+
+### 4) filter
+
+filter 메서드는 자신을 호출한 배열의 모든 요소를 순회하면서 인수로 전달받은 콜백 함수를 반복 호출하고, 콜백 함수의 반환 값이 true인 요소로만 구성된 새로운 배열을 반환합니다. 이때 원본 배열을 변경되지 않습니다.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+// filter 메서드는 numbers 배열의 모든 요소를 순회하면서 콜백 함수를 반복 호출한다.
+// 그리고 콜백 함수의 반환값이 true인 요소로만 구성된 새로운 배열을 반환한다.
+// 다음의 경우 numbers 배열에서 홀수인 요소만을 필터링한다(1은 true로 평가된다).
+const odds = numbers.filter(item => item % 2);
+console.log(odds); // [1, 3, 5]
+```
+
+### 5) reudce
+
+reduce 메서드는 자신을 호출한 배열을 모든 요소를 순회하면 인수로 전달받은 콜백 함수를 반복 호출합니다. 그리고 콜백 함수의 반환 값을 다음 순회 시에 콜백 함수의 첫 번째 인수로 전달하면서 콜백 함수를 호출하여 하나의 결과값을 만들어 반환합니다.    
+reduce 메서드는 첫 번째 인수로 콜백함수, 두 번째 인수로 초기값을 전달 받습니다.    
+reduce 메서드의 콜백 함수에는 초기값 또는 콜백 함수의 이전 반환 값, reduce 메서드를 호출한 배열의 요소값, 인덱스, reduce 메서드를 호출한 메서드(this)가 인수로 전달됩니다.
+
+
+```js
+// [1, 2, 3, 4]의 모든 요소의 누적을 구한다.
+const sum = [1, 2, 3, 4].reduce(
+ (accumulator, currentValue, index, array) => accumulator + currentValue, 0);
+
+console.log(sum); // 10
+```
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/b1a1aae1-5317-487d-b297-d488819f33f0)
+
+### 6) some
+
+some 메서드는 자신을 호출한 배열의 요소를 순회하면서 인수로 전달된 콜백 함수를 호출합니다. 이떄 some 메서드는 콜백 함수의 반환값이 단 한번이라도 참이면 true, 모두 거짓이면 false를 반환합니다. 즉 배열의 요소 중에 콜백 함수를 통해 정의한 조건을 만족하는 요소가 1개 이상 존재하는지 확인하여 그 결과를 불리언 타입으로 반환합니다.     
+
+다른 고차함수와 마찬가지로 some 메서드의 콜백 함수는 some 메서드를 호출한 요소값, 인덱스, some 메서드를 호출한 배열 자체(this)를 전달받을 수 있습니다.    
+
+```js
+// 배열의 요소 중에 10보다 큰 요소가 1개 이상 존재하는지 확인
+[5, 10, 15].some(item => item > 10); // -> true
+
+// 배열의 요소 중에 0보다 작은 요소가 1개 이상 존재하는지 확인
+[5, 10, 15].some(item => item < 0); // -> false
+
+// 배열의 요소 중에 'banana'가 1개 이상 존재하는지 확인
+['apple', 'banana', 'mango'].some(item => item === 'banana'); // -> true
+
+// some 메서드를 호출한 배열이 빈 배열인 경우 언제나 false를 반환한다.
+[].some(item => item > 3); // -> false
+```
+
+### 7) every
+
+every 메서드는 자신을 호출한 배열의 요소를 순회하면서 인수로 전달된 콜백 함수를 호출합니다. 이때 every 메서드는 콜백 함수의 반환값이 모두 참이면 ture, 단 한번이라도 거짓이면 false를 반환합니다. 즉, 배열의 모든 요소가 콜백 함수를 통해 정의한 조건을 모두 만족하는지 확인하여 그 결과를 불리언 타입으로 반환합니다.    
+
+ 다른 고차함수와 마찬가지로 every 메서드의 콜백 함수는 every 메서드를 호출한 요소값, 인덱스, some 메서드를 호출한 배열 자체(this)를 전달받을 수 있습니다.    
+
+```js
+// 배열의 모든 요소가 3보다 큰지 확인
+[5, 10, 15].every(item => item > 3); // -> true
+
+// 배열의 모든 요소가 10보다 큰지 확인
+[5, 10, 15].every(item => item > 10); // -> false
+
+// every 메서드를 호출한 배열이 빈 배열인 경우 언제나 true를 반환한다.
+[].every(item => item > 3); // -> true
+```
+
+### 8) find 
+
+ES6에서 도입된 find 메서드는 자신을 호출한 배열의 요소를 순회하면서 인수로 전달된 콜백 함수를 호출하여 반환값이 true인 첫 번째 요소를 반환합니다. 만약 콜백 함수의 반환값이 true인 요소가 존재하지 않는다면 undefined를 반환합니다.
+
+다른 고차함수와 마찬가지로 find 메서드의 콜백 함수는 find 메서드를 호출한 요소값, 인덱스, some 메서드를 호출한 배열 자체(this)를 전달받을 수 있습니다.    
+
+```js
+const users = [
+  { id: 1, name: 'Lee' },
+  { id: 2, name: 'Kim' },
+  { id: 2, name: 'Choi' },
+  { id: 3, name: 'Park' }
+];
+
+// id가 2인 첫 번째 요소를 반환한다. find 메서드는 배열이 아니라 요소를 반환한다.
+users.find(user => user.id === 2); // -> {id: 2, name: 'Kim'}
+```
+
+### 9) findIndex
+
+ES6에 도입된 findIndex 메서드는 자신을 호출한 배열의 요소를 순회하면서 인수로 전달된 콜백 함수를 호출하여 반환값이 true인 첫 번째 요소의 인덱스를 반환합니다.    
+
+
+```js
+const users = [
+  { id: 1, name: 'Lee' },
+  { id: 2, name: 'Kim' },
+  { id: 2, name: 'Choi' },
+  { id: 3, name: 'Park' }
+];
+
+// id가 2인 요소의 인덱스를 구한다.
+users.findIndex(user => user.id === 2); // -> 1
+
+// name이 'Park'인 요소의 인덱스를 구한다.
+users.findIndex(user => user.name === 'Park'); // -> 3
+
+// 위와 같이 프로퍼티 키와 프로퍼티 값으로 요소의 인덱스를 구하는 경우
+// 다음과 같이 콜백 함수를 추상화할 수 있다.
+function predicate(key, value) {
+  // key와 value를 기억하는 클로저를 반환
+  return item => item[key] === value;
+}
+
+// id가 2인 요소의 인덱스를 구한다.
+users.findIndex(predicate('id', 2)); // -> 1
+
+// name이 'Park'인 요소의 인덱스를 구한다.
+users.findIndex(predicate('name', 'Park')); // -> 3
+```
+
+### 10) flatMap
+
+ES10에서 도입된 flatMap 메서드는 map 메서드를 통해 생성된 새로운 배열을 평탄화합니다.  즉 map 메서드와 flat 메서드를 순차적으로 실행하는 효과가 있습니다.   
+```js
+const arr = ['hello', 'world'];
+
+// map과 flat을 순차적으로 실행
+arr.map(x => x.split('')).flat();
+// -> ['h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd']
+
+// flatMap은 map을 통해 생성된 새로운 배열을 평탄화한다.
+arr.flatMap(x => x.split(''));
+// -> ['h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd']
+```
+
+❗️단, flatMap 메서드는 flat 메서드 처럼 평탄화 깊이를 지정할 수는 없고, 1단계만 평탄화합니다.   
+
+```js
+const arr = ['hello', 'world'];
+
+// flatMap은 1단계만 평탄화한다.
+arr.flatMap((str, index) => [index, [str, str.length]]);
+// -> [[0, ['hello', 5]], [1, ['world', 5]]] => [0, ['hello', 5], 1, ['world', 5]]
+
+// 평탄화 깊이를 지정해야 하면 flatMap 메서드를 사용하지 말고 map 메서드와 flat 메서드를 각각 호출한다.
+arr.map((str, index) => [index, [str, str.length]]).flat(2);
+// -> [[0, ['hello', 5]], [1, ['world', 5]]] => [0, 'hello', 5, 1, 'world', 5]
+```
+
