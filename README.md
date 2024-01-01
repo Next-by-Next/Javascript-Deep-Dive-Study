@@ -9,7 +9,7 @@
 
 ###  📌 [part 1 (시즌 2)](#-part-1-시즌-2) ( 10 / 28 ~ 12 / 2 ) ✅[ 체크리스트](#북-스터디-함께하시는-분들-part-1--19-명-)
 ###  📌 [part 2 (시즌 2)](#-part-2-시즌-2) ( 12 / 4 ~ 12 / 30 ) ✅[ 체크리스트](#북-스터디-함께하시는-분들-part-2--18-명-)
-
+###  📌 [part 3 (시즌 2)](#-part-3-시즌-2) ( 01 / 2 ~ 01 / 12 ) ✅[ 체크리스트](#북-스터디-함께하시는-분들-part-3--9-명-)
 
 ---
 
@@ -338,3 +338,31 @@
 [rdom]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/39_DOM
 [r비동기프로그래밍]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/42_%EB%B9%84%EB%8F%99%EA%B8%B0%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D
 [rajax]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/43_Ajax
+
+
+<br>
+<br>
+
+## 📚북 스터디 함께하시는 분들 Part 3 ( 9 명 )
+
+<br>
+
+| 　　\　Day<br>이름　\  |1 | 2|3|4| 5|6 |7|8|9 |10| 11| 12|13|14|15|16|
+| :- | :-: | :-: | :-:| :-:| :-:| :-: | :-: | :-: |  :-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| <center>[강철원](https://github.com/Ryan-dia)🏅</center>     
+| <center>[고세종](https://github.com/SebellKo)🏅</center>      
+| <center>[나세현](https://github.com/e6d1fe)🏅</center> 
+| <center>[문소희](https://github.com/ccconac)🏅</center> 
+| <center>[심채윤](https://github.com/chaeyun-sim)🏅</center> 
+| <center>[이나린](https://github.com/narinn-star)🏅</center>
+| <center>[최주용](https://github.com/wuzoo)🏅</center>
+| <center>[한수지](https://github.com/nincoding)🏅</center> 
+| <center>[김은지](https://github.com/publdaze)🏅</center> 
+|     <center>제출</center>                                       | 18|17|17|16|16|17|13|16|10|11|12|7|11|10|11|9|
+
+<br>
+
+|완주 |👑 | 마지막 day 제출 및 2회 이하 미제출  |
+| --- | ---| ---|
+|개근 |🏆 | 1회 이하 미제출 |
+|꾸준 |🏅 | part 2 참가자 |
