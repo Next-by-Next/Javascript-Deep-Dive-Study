@@ -349,16 +349,16 @@
 
 | 　　\　Day<br>이름　\  |1 | 2|3|4| 5|6 |7|8|9 |10| 11| 12|13|14|15|16|
 | :- | :-: | :-: | :-:| :-:| :-:| :-: | :-: | :-: |  :-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| <center>[강철원](https://github.com/Ryan-dia)🏅</center>     
-| <center>[고세종](https://github.com/SebellKo)🏅</center>      
-| <center>[나세현](https://github.com/e6d1fe)🏅</center> 
-| <center>[문소희](https://github.com/ccconac)🏅</center> 
-| <center>[심채윤](https://github.com/chaeyun-sim)🏅</center> 
-| <center>[이나린](https://github.com/narinn-star)🏅</center>
-| <center>[최주용](https://github.com/wuzoo)🏅</center>
-| <center>[한수지](https://github.com/nincoding)🏅</center> 
-| <center>[김은지](https://github.com/publdaze)🏅</center> 
-|     <center>제출</center>                                       | 18|17|17|16|16|17|13|16|10|11|12|7|11|10|11|9|
+| <center>[강철원](https://github.com/Ryan-dia)🏅</center>      |✅|
+| <center>[고세종](https://github.com/SebellKo)🏅</center>      |✅|
+| <center>[나세현](https://github.com/e6d1fe)🏅</center>        |✅|
+| <center>[문소희](https://github.com/ccconac)🏅</center>       |✅|
+| <center>[심채윤](https://github.com/chaeyun-sim)🏅</center>   |✅|
+| <center>[이나린](https://github.com/narinn-star)🏅</center>   |✅|
+| <center>[최주용](https://github.com/wuzoo)🏅</center>         |✅|
+| <center>[한수지](https://github.com/nincoding)🏅</center>     |✅|
+| <center>[김은지](https://github.com/publdaze)🏅</center>      |✅|
+|     <center>제출</center>                                    | 9|
 
 <br>
 
