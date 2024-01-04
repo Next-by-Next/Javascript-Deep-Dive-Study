@@ -173,3 +173,145 @@ enum을 흉내 내어 사용하려면 다음과 같이 객체의 변경을 방�
 <br>
 
 ---
+
+## 4. 심벌과 프로퍼티 키
+
+- 객체의 프로퍼티 키는 빈 문자열을 포함하는 모든 문자열 또는 심벌 값으로 만들 수 있으며, 동적으로 생성할 수도 있습니다.        
+- 심벌 값을 프로퍼티 키로 사용하려면 프로퍼티 키로 사용할 심벌 값에 `대괄호`를 사용해야 합니다.
+- 프로퍼티에 접근할 때는 대괄호를 사용해야합니다.
+
+```js
+const obj = {
+  // 심벌 값으로 프로퍼티 키를 생성
+  [Symbol.for('mySymbol')]: 1
+};
+
+obj[Symbol.for('mySymbol')]; // -> 1
+```
+
+❗️ 심벌 값은 유일무이한 값이므로 심벌 값으로 프로퍼티 키를 만들면 다른 프로퍼티 키와 절대 충돌하지 않습니다.   
+
+<br>
+
+---
+
+## 5 심벌과 프로퍼티 은닉
+
+심벌 값을 프로퍼티 키로 사용하여 생성한 프로퍼티는 `for...in`문이나 `Object.keys`, `Object.getOwnPropertyNames` 메서드로 찾을 수 없습니다.
+
+>심벌 값을 프로퍼티 키로 사용하여 프로퍼티를 생성하면 외부에 노출할 필요가 없는 프로퍼티를 은닉할 수 있습니다.
+```js
+const obj = {
+  // 심벌 값으로 프로퍼티 키를 생성
+  [Symbol('mySymbol')]: 1
+};
+
+for (const key in obj) {
+  console.log(key); // 아무것도 출력되지 않는다.
+}
+
+console.log(Object.keys(obj)); // []
+console.log(Object.getOwnPropertyNames(obj)); // []
+```
+
+❗️ES6에서 도입된 `Object.getWonPropertySymbols` 메서드를 사용하면 심벌 값을 프로퍼티 키로 사용하여 생성한 프로퍼티를 찾을 수 있습니다.    
+
+```js
+const obj = {
+  // 심벌 값으로 프로퍼티 키를 생성
+  [Symbol('mySymbol')]: 1
+};
+
+// getOwnPropertySymbols 메서드는 인수로 전달한 객체의 심벌 프로퍼티 키를 배열로 반환한다.
+console.log(Object.getOwnPropertySymbols(obj)); // [Symbol(mySymbol)]
+
+// getOwnPropertySymbols 메서드로 심벌 값도 찾을 수 있다.
+const symbolKey1 = Object.getOwnPropertySymbols(obj)[0];
+console.log(obj[symbolKey1]); // 1
+```
+
+<br>
+
+---
+
+## 6. 심벌과 표준 빌트인 객체 확장
+
+- 표준 빌트인 객체는 읽기 전용으로 사용하는 것이 좋습니다.
+  - 표준 빌트인 객체에 사용자 정의 메서드를 직접 추가하여 확장하는 것은 권장하지 않습니다. 
+
+```js
+// 표준 빌트인 객체를 확장하는 것은 권장하지 않습니다.
+Array.prototype.sum = function () {
+  return this.reduce((acc, cur) => acc + cur, 0);
+}
+
+[1, 2].sum(); // -> 3
+```
+
+❓ 그 이유는 개발자가 직접 추가한 메서드와 미래에 표준 사양으로 추가될 메서드의 이름이 중복될 수 있기 때문입니다.
+
+
+❗️ 하지만 중복될 가능성이 없는 심벌 값으로 프로퍼티 키를 생성하여 포준 빌트인 객체를 확장하면 표준 빌트인 객체의 기존 프로퍼티 키와 충돌하지 않는 것은 물론, 표준 사양의 버전이 올라감에 따라 추가될지 모르는 어떤 프로퍼티 키와도 충돌할 위험이 없어 안전하게 표준 빌트인 객체를 확장할 수 있습니다. 
+
+```js
+// 심벌 값으로 프로퍼티 키를 동적 생성하면 다른 프로퍼티 키와 절대 충돌하지 않아 안전하다.
+Array.prototype[Symbol.for('sum')] = function () {
+  return this.reduce((acc, cur) => acc + cur, 0);
+};
+
+[1, 2][Symbol.for('sum')](); // -> 3
+```
+
+<br>
+
+---
+
+## 7. Well-known Symbol
+
+- 자바스크립트가 기본 제공하는 빌트인 심벌 값이 있습니다.
+- 빌트인 심벌 값은 `Symbol`함수의 프로퍼티에 할당되어 있습니다.
+
+>브라우저 콘솔에서 `Symbol`함수를 참조하면 아래와 같습니다.
+<img width="556" alt="image" src="https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/13cfba94-c8ca-48b8-8ced-cabbfa199264">
+
+❗️ 자바스크립트가 기본 제공하는 빌트인 심벌 값을 ECMAScript 사양에서는 Well-known Symbol이라 부릅니다. 
+
+>예를 들어 , `Array`, `String`, `Map`, `Set`, `TypedArray`, `arguments`, `NodeList`, `HTMLCollection`과 같이 `for..of`문으로 순회 가능한 빌트인 이터러블은 Well-known Symbol인 `Symbol.iterator`를 키로 갖는 메서드를 가지며 `Symbol.iterator`메서드를 호출하면 이터레이터를 반환하도록 ECMAScript 사양에 규정되어 있습니다.
+
+
+만약 빌트인 이터러블이 아닌 인반 객체를 이터러블처럼 동작하도록 구현하고 싶다면 이터레이션 프로토콜을 따르면 됩니다.
+
+>ECMAScript 사양에 규정되어 있는 대로 Well-knwon Symbol인 `Symbol.iterator`를 키로 갖는 메서드를 객체에 추가하고 이터레이터를 반환하도록 구현하면 그 객체는 이터러블이 됩니다.
+
+```js
+// 1 ~ 5 범위의 정수로 이루어진 이터러블
+const iterable = {
+  // Symbol.iterator 메서드를 구현하여 이터러블 프로토콜을 준수
+  [Symbol.iterator]() {
+    let cur = 1;
+    const max = 5;
+    // Symbol.iterator 메서드는 next 메서드를 소유한 이터레이터를 반환
+    return {
+      next() {
+        return { value: cur++, done: cur > max + 1 };
+      },
+    };
+  },
+};
+
+for (const num of iterable) {
+  console.log(num); // 1 2 3 4 5
+}
+```
+
+❗️ 이때 이터레이션 프로토콜을 준수하기 위해 일반 객체에 추가해야 하는 메서드의 키 `Symbol.iterator`는 기존 프로퍼티 키 또는 미래에 추가될 프로퍼티 키와 절대로 중복되지 않을 것입니다.
+
+
+**이처럼 심벌은 중복되지 않는 상수 값을 생성하는 것은 물론 기존에 작성된 코드에 영향을 주지 않고 새로운 프로퍼티를 추가하기 위해, 즉 하위 호환성을 보장하기 위해 도입되었습니다.** 
+
+---
+
+### 읽고나서
+
+- 사실 그동안 Symbol에 대해서는 대충알았고 써보지도 않아서 막연했는데 이제 어느정도 감을 잡았다.
+- 특히 표준 빌트인 객체 확장은 미래에 빌트인 객체가 추가될 수 있기 때문에 권장되지 않았는데 심볼을 사용한다면 충분히 가능할 것 같다.  
