@@ -9,7 +9,6 @@ ES6에서 도입된 이터레이션 프로토콜은 순회 가능한 데이터 �
 >❗️ ES6 이전의 순회 가능한 데이터 컬렉셕, 즉 배열, 문자열, 유사 배열 객체, DOM 컬렉션 등은 통일된 규약없이 각자 나름의 구조를 가지고 `for 문`, `for...in 문`, `forEach 메서드` 등 다양한 방법으로 순회할 수 있었습니다. 
 ES6에서는 순회 가능한 데이터 컬렉션을 이터레이션 프로토콜을 준수하는 이터러블로 통일하여 `for...of문`, `스프레드 문법`, `배열 디스트럭처링 할당`의 대상으로 사용할 수 있도록 일원화 했습니다.
 
-![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/cedaaa3d-61ce-421e-b922-c385e4493f0b)
 
 
 <br/>
@@ -159,3 +158,189 @@ for (;;) {
   console.log(item); // 1 2 3
 }
 ```
+
+
+## 4. 이터러블과 유사 배열 객체
+
+>❓ 유사 배열 객체
+>유사 배열 객체는 마치 배열처럼 인덱스로 프로퍼티 값에 접근할 수 있고 `length` 프로퍼티를 갖는 객체를 말합니다.
+>유사 배열 객체는 length 프로퍼티를 갖기 때문에 `for` 문으로 순회할 수 있고, 인덱스를 나타내는 숫자 형식의 문자열을 프로퍼티 키로 가지므로 마치 배열처럼 인덱스로 프로퍼티 값에 접근할 수 있습니다.
+```js
+// 유사 배열 객체
+const arrayLike = {
+   0: 1,
+   1: 2,
+   2: 3,
+   length: 3
+};
+
+// 유사 배열 객체는 length 프로퍼티를 갖기 때문에 for 문으로 순회할 수 있습니다.
+for(let i = 0; i < arrayLike.length; i++) {
+   // 유사 배열 객체는 마치 배열처럼 인덱스 프로퍼티 값에 접근 할 수 있습니다.
+   console.log(arrayLike[i]); // 1 2 3
+}
+```
+
+유사 배열 객체는 이터러블이 아닌 일반 객체이기 때문에 `Symbol.iterrater 메서드가 없기 때문에 `for...of`문으로 순회할 수 없습니다.
+
+```js
+// 유사 배열 객체는 이터러블이 아니기 때문에 for...of 문으로 순회할 수 없습니다.
+for( const item of arrayLike) {
+   console.log(item); // 1 2 3
+} // -> typeError : arrayLike is not iterable
+```
+
+
+## 5. 이터레이션 프로토콜의 필요성
+
+
+- 이터레이션 프로토콜을 준수하는 이터러블
+   - Array
+   - String
+   - Map
+   - Set
+   - TypedArray
+   - DOM 컬렉션(NodeList, HTMLCollection)
+   - arguments    
+
+ES6에서는 순회 가능한 데이터 컬렉션을 이터레이션 프로토콜을 준수하는 이터러블로 통일하여 for...of문, 스프레드 문법, 배열 디스트럭처링 할당의 대상으로 사용할 수 있도록 일원화했습니다.
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/cedaaa3d-61ce-421e-b922-c385e4493f0b)
+
+
+### 1) 사용자 정의 이터러블 구현
+
+이터레이션 프로토콜을 준수하지 않는 일반 객체도 이터레이션 프로토콜을 준수하도록 구현하면 사용자 정의 이터러블이 됩니다.
+>예를 들어, 피보나치 수열(1, 2, 3, 5, 8, 13..)을 구현한 간단한 사용자 정의 이터러블을 구현해봅시다.
+```js
+// 피보나치 수열을 구현한 사용자 정의 이터러블
+const fibonacci = {
+  // Symbol.iterator 메서드를 구현하여 이터러블 프로토콜을 준수한다.
+  [Symbol.iterator]() {
+    let [pre, cur] = [0, 1]; // "36.1. 배열 디스트럭처링 할당" 참고
+    const max = 10; // 수열의 최대값
+
+    // Symbol.iterator 메서드는 next 메서드를 소유한 이터레이터를 반환해야 하고
+    // next 메서드는 이터레이터 리절트 객체를 반환해야 한다.
+    return {
+      next() {
+        [pre, cur] = [cur, pre + cur]; // "36.1. 배열 디스트럭처링 할당" 참고
+        // 이터레이터 리절트 객체를 반환한다.
+        return { value: cur, done: cur >= max };
+      }
+    };
+  }
+};
+
+// 이터러블인 fibonacci 객체를 순회할 때마다 next 메서드가 호출된다.
+for (const num of fibonacci) {
+  console.log(num); // 1 2 3 5 8
+}
+```
+
+>사용자 정의 이터러블은 이터레이션 프로토콜을 준수하도록 `Symbol.iterator` 메서드를 구현하고 `Symbol.iterator` 메서드가 `next` 메서드를 갖는 이터레이터를 반환하도록합니다. 그리고 이터레이터의 `next` 메서드는 `done` 과 `value` 프로퍼티를 가지는 이터레이터 리절트 객체를 반환합니다. `for...of` 문은 `done` 프로퍼티가 `true`가 될 때까지 반복하며 `done` 프로퍼티가 `true`가 되면 반복을 중지합니다. 이터러블은 `for...of`문뿐만 아니라 스프레드 문법, 배열 디스트럭처링 할당에도 사용할 수 있습니다.   
+```js
+// 이터러블은 스프레드 문법의 대상이 될 수 있다.
+const arr = [...fibonacci];
+console.log(arr); // [ 1, 2, 3, 5, 8 ]
+
+// ⭐️ 이터러블은 배열 디스트럭처링 할당의 대상이 될 수 있다.
+const [first, second, ...rest] = fibonacci;
+console.log(first, second, rest); // 1 2 [ 3, 5, 8 ]
+```
+
+### 2) 이터러블을 생성하는 함수
+앞의 예제에서 수열의 최대값을 외부에서 전달할 수 있도록 수정해 봅시다.
+
+>수열의 최대값을 인수로 전달받아 이터러블을 반환하는 함수를 만들면 됩니다.
+```js
+// 피보나치 수열을 구현한 사용자 정의 이터러블을 반환하는 함수. 수열의 최대값을 인수로 전달받는다.
+const fibonacciFunc = function (max) {
+  let [pre, cur] = [0, 1];
+
+  // Symbol.iterator 메서드를 구현한 이터러블을 반환한다.
+  return {
+    [Symbol.iterator]() {
+      return {
+        next() {
+          [pre, cur] = [cur, pre + cur];
+          return { value: cur, done: cur >= max };
+        }
+      };
+    }
+  };
+};
+
+// 이터러블을 반환하는 함수에 수열의 최대값을 인수로 전달하면서 호출한다.
+for (const num of fibonacciFunc(10)) {
+  console.log(num); // 1 2 3 5 8
+}
+```
+
+### 3) 이터러블이면서 이터레이터인 객체를 생성하는 함수
+
+이터레이터를 생성하려면 이터러블의 `Symbol.iterator`메서드를 호출해야 합니다.
+
+```js
+// fibonacciFunc 함수는 이터러블을 반환한다.
+const iterable = fibonacciFunc(5);
+// 이터러블의 Symbol.iterator 메서드는 이터레이터를 반환한다.
+const iterator = iterable[Symbol.iterator]();
+
+console.log(iterator.next()); // { value: 1, done: false}
+console.log(iterator.next()); // { value: 2, done: false}
+console.log(iterator.next()); // { value: 3, done: false}
+console.log(iterator.next()); // { value: 4, done: true}
+```
+
+이터러블이면서 이터레이터인 객체를 생성하면 `Symbol.iterator`메서드를 호출하지 않아도 됩니다. 다음 객체는 `Symbol.iterator`메서드와 `next` 메서드를 소유한 이터러블이면서 이터레이터입니다. `Symbol.iterator`메서드는 `this`를 반환하므로 `next`메서드를 갖는 이터레이터를 반환합니다.     
+
+```js
+// 이터러블이면서 이터레이터인 객체
+// 이터레이터를 반환하면 Symbol.iterator 메서드와 이터레이션 리절트 객체를 반환하는 next 메서드를 소유한다.
+{
+   [Symbol.iterator]() { return this;},
+   next() {
+      return { value: any, done: boolean}
+}
+}
+```
+
+>앞에서 살펴본 `fibonacciFunc`함수를 이터러블이면서 이터레이터인 객체를 생성하여 반환하는 함수로 변경해봅시다.
+```js
+const fibonacciFunc = function (max) {
+   let [pre, cur] = [0, 1];
+
+// Symbol.iterator 메서드와 next 메서드를 소유한 이터러블이면서 이터레이터인 객체를 반환
+return {
+   [Symbol.iterator]() {return this;}
+   // next 메서드는 이터레이터 리절트 객체를 반환
+   next() {
+      [pre, cur] = [cur, pre + cur]
+      return { value : cur, done: cur >= max };
+     }
+   }
+}
+
+let iter = fibonacciFunc(10);
+
+// iter는 이터러블이므로 for....for 문으로 순회할 수 있습니다.
+for (const num of iter) {
+   console.log(num); // 1 2 3 5 8
+}
+
+// iter는 이터러블이면서 이터레이터입니다.
+iter = fibonacciFunc(10);
+
+// iter는 이터레이터이므로 이터레이션 리절트 객체를 반환하는 next 메서드를 소유합니다.
+
+console.log(iter.next()); // { value: 1, done: false}
+console.log(iter.next()); // { value: 2, done: false}
+console.log(iter.next()); // { value: 3, done: false}
+console.log(iter.next()); // { value: 5, done: false}
+console.log(iter.next()); // { value: 8, done: false}
+console.log(iter.next()); // { value: 13, done: true}
+
+```
+
+
