@@ -357,7 +357,7 @@
 | <center>[강철원](https://github.com/Ryan-dia)🏅</center>      |✅|✅|✅|✅|✅|✅| |✅|  |
 | <center>[김은지](https://github.com/publdaze)🏅</center>      |✅|✅|✅|  |✅| |✅|✅|✅|
 | <center>[심채윤](https://github.com/chaeyun-sim)🏅</center>   |✅|✅|✅|✅|  |✅| |
-| <center>[최주용](https://github.com/wuzoo)🏅</center>         |✅|  |✅|✅|✅|✅|✅|✅|
+| <center>[최주용](https://github.com/wuzoo)🏅</center>         |✅|  |✅|✅|✅|✅|✅|✅|❗️|
 |     <center>제출</center>                                    | 9| 8|9|8 |8 |8| 7|8 |6|
 
 <br>
