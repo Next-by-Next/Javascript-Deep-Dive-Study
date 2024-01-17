@@ -114,5 +114,41 @@ HTML 문서는 HTML 요소들의 집합으로 이뤄지며, HTML 요소는 중�
 - 만약 인수로 전달된 `class`값을 갖는 요소가 존재하지 않는 경우 `getElementsByClassName`메서드는 빈 `HTMLCollection`객체를 반환합니다.
 
 
+### 4) CSS 선택자를 이용한 요소 노드 취득
+
+Document.prototype/Element.prototype.querySelector 메서드
+
+- 인수로 전달한 CSS 선택자를 만족시키는 요소 노드가 여러 개인 경우 첫 번째 요소 노드만 반환
+- 인수로 전달된 CSS 선택자를 만족시키는 요소 노드가 존재하지 않는 경우 null을 반환
+- 인수로 전달한 CSS 선택자가 문법에 맞지 않는 경우 DOMException 에러가 발생
+
+>Document.prototype/Element.prototype.querySelectorAll 메서드 --> 여러 개의 요소 노드 객체를 갖는 DOM 컬렉션 객체인 NodeList 객체를 반환하는데 이는 유사 배열 객체이면서 이터러블입니다.
+
+- 인수로 전달된 CSS 선택자를 만족시키는 요소가 존재하지 않는 경우 빈 NodeList 객체를 반환
+- 인수로 전달한 CSS 선택자가 문법에 맞지 않는 경우 DOMException 에러가 발생
+
+### 5) 특정 요소 노드를 취득할 수 있는지 확인
+
+
+>Element.prototype.matches("CSS선택자")
+
+- 인수로 전달한 CSS 선택자를 통해 특정 노소를 취득할 수 있는지를 확인합니다.
+- 이벤트 위임 등에서의 조건문에 주로 사용됩니다.
+- getElementsByClassName 등은 HTMLCollection을 반환합니다.
+- querySelectorAll 이나 Node 객체의 프로퍼티는 NodeList를 반환합니다.
+
+- HTMLCollection은 DOM의 현재 상태를 실시간으로 반영(live)하는 반면, NodeList는 일반적으로 반환된 시기의 상태를 반영(non-live)합니다.
+
+- 둘 모두 유사 배열 객체이며, Array() 생성자를 통해 배열로 변환하여 사용하는 것이 코딩 컨벤션을 유지하는 데에 바람직합니다.
+
+### 6) HTMLCollection과 NodeList
+
+- 두객체 모두 for…of로 순회할 수 있습니다.
+- Array() 혹은 스프레드 문법을 사용하여 배열로 변환할 수 있습니다.
+- 인덱스를 통해 요소에 접근할 수 있습니다.
+HTMLCollection
+
+>getElementsBy*** 메서드를 통해 반환됩니다.
+>노드 객체의 상태 변화를 실시간으로 반영합니다.
 
 
