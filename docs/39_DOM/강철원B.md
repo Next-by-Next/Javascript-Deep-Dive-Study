@@ -74,9 +74,45 @@ HTML 문서는 HTML 요소들의 집합으로 이뤄지며, HTML 요소는 중�
 
 ![image](https://user-images.githubusercontent.com/76567238/222152715-6be40e62-6a5d-4925-9a55-818248ddc231.png)
 
+## 2. 요소 노드 취득
+
+`HTML`의 구조나 내용 또는 스타일 등을 동적으로 조작하려면 먼저 요소 노드를 취득해야 합니다.  텍스트 노드는 요소 노드의 자식 노드이고, 어트리뷰트 노드는 요소 노드와 연결되어 있기 때문에 텍스트 노드나 어트리뷰트 노드를 조작하고자 할 때도 마찬가지입니다.    
+
+>예를 들어, `HTML` 문서 내의 `h1` 요소의 텍스트를 변경하고 싶은 경우를 생각해봅시다. 이 경우 먼저 `DOM` 트리 내에 존재하는 `h1`요소 노드를 취득할 필요가 있습니다. 그리고 취득한 요소 노드의 자식 노드인 텍스트 노드를 변경하면 해당 `h1`요소 노드를 취득할 필요가 있습니다. 그리고 취득한 요소 노드의 자식 노드인 텍스트 노드를 변경하면 해당 `h1` 요소의 텍스트가 변경됩니다.
+
+### 1) `id`를 이용한 요소 노드 취득
+
+`Document.prototype.getElementById` 메서드는 인수로 전달한 `id` 어트리뷰트 값(이하 id값)을 갖는 하나의 요소 노드를 탐색하여 반환합니다. `getElementById`메서드는 `Document.prototype`의 프로퍼티입니다. 따라서 반드시 문서 노드인 `document`를 통해 호출해야 합니다.    
+
 
 
 `DOM`은 `HTML`문서의 계층적 구조와 정보를 표현하는 것은 물론 노드 객체의 종류, 즉 노드 타입에 따라 필요한 기능을 프로퍼티와 메서드의 집합인 `DOM API`로 제공합니다.  이 `DOM API`를 통해 `HTML`의 구조나 내용 또는 스타일등을 동적으로 조작할 수 있습니다.
+
+
+- `id`값은 HTML 문서 내에서 유일한 값이어야 하며, `class`어트리뷰트와는 달리 공백 문자로 구분하여 여러개의 값을 가질 수 없습니다.
+    - 단, HTML 문서 내에 중복된 `id`값을 갖는 HTML 요소가 여러 개 존재하더라도 어떠한 에러도 발생하지 않습니다.
+    - 즉, HTML 문서 내에는 중복된 `id`값을 갖는 요소가 여러 개 존재할 가능성이 있습니다.
+    - 이러한 경우 `getElementById` 메서드는 인수로 전달된 `id`값을 갖는 첫 번째 요소 노드만 반환합니다. (`getElementById` 메서드는 언제나 단 하나의 요소 노드를 반환합니다)
+    - 만약 인수로 전달된 `id`값을 갖는 HTML 요소가 존재하지 않는 경우 `getElementById`메서드는 `null`을 반환합니다.
+    - HTML 요소에 `id` 어트리뷰트를 부여하면 `id` 값과 동일한 이름의 전역 변수가 암묵적으로 선언되고 해당 노드 객체가 할당되는 부수 효과가 있습니다.
+        - 단, `id`값과 동일한 이름의 전역 변수가 이미 선언되어 있으면 이 전역 변수에 노드 객체가 재할당되지 않습니다.
+
+### 2) 태그 이름을 이용한 요소 노드 취득
+
+`Document.prototype/Element.prototype.getElementsByTagName` 메서드는 인수로 전달한 태그 이름을 갖는 모든 요소 노드들을 탐색하여 반환합니다. 메서드 이름에 포함된 `Elements`가 복수형인 것에서 알 수 있듯이 `getElementsByTagName`메서드는 여러 개의 요소 노드 객체를 갖는 `DOM`컬렉션 객체인 `HTMLCollection`객체를 반환합니다.    
+
+
+- 함수는 하나의 값만 반환할 수 있으므로 여러 개의 값을 반환하려면 배열이나 객체와 같은 자료구조에 담아 반환해야 합니다.
+- `getElementsByTagName`메서드가 반환하는 `DOM` 컬렉션 객체인 `HTMLCollection`객체는 유사 배열 객체이면서 이터러블입니다.
+
+### 3) class를 이용한 요소 노드 취득
+
+`Document.prototype/Element.prototype.getElementsByClassName` 메서드는 인수로 전달한 `Class` 어트리뷰트 값을 갖는 모든 요소 노드들을 탐색하여 반환합니다. 인수로 전달할 `class`값은 공백으로 구분하여 여러 개의 `class`를 지정할 수 있습니다.    
+`getElementsByTagName` 메서드와 마찬가지로 `getElementsByClassName`메서드는 여러 개의 요소 노드 객체를 갖는 `DOM`컬렉션 객체인 `HTMLCollection`객체를 반환합니다.
+
+- `document`를 통해 호출하며 `DOM`전체에서 요소 노드를 탐색하여 반환하고 `Element.prototype.getElementsByClassName`메서드는 특정 요소 노드를 통해 호출하며 특정 요소 노드의 자손 노드 중에서 요소 노드를 탐색하여 반환합니다.
+- 만약 인수로 전달된 `class`값을 갖는 요소가 존재하지 않는 경우 `getElementsByClassName`메서드는 빈 `HTMLCollection`객체를 반환합니다.
+
 
 
 
