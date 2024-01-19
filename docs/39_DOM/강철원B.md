@@ -152,3 +152,37 @@ HTMLCollection
 >노드 객체의 상태 변화를 실시간으로 반영합니다.
 
 
+## 3. 노드 탐색
+
+- 요소 노드를 취득해 부모, 형제, 자식 노드 탐색이 가능합니다.
+
+![image](https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/e825f3f8-a708-4975-a2aa-7eb30a5446eb)
+
+### 1) 공백 텍스트 노드 
+
+HTML element 사이의 스페이스, 탭, 줄바꿈(개행) 등의 공백 문자는 공백 텍스트 노드를 생성합니다.    
+
+### 2) 자식 노드 탐색
+
+<img width="650" alt="image" src="https://github.com/Ryan-Dia/Javascript-Deep-Dive-Study/assets/76567238/f6b57d30-098c-4e4f-8b33-73a897047e8f">
+
+
+### 3) 자식 노드 존재 확인
+
+자식 노드가 존재하는지 확인하려면 `Node.prototype.hasChildNodes` 메서드를 사용합니다. 
+
+### 4) 요소 노드의 텍스트 노드 탐색
+
+- firstChild 프로퍼티로 접근 가능합니다.
+
+```js
+console.log(document.getElementById('foo').firstChild);
+```
+
+### 5) 부모 노드 탐색 
+
+- Node.prototype.parentNode 프로퍼티를 사용
+
+### 6) 형제 노드 탐색
+
+- Node.prototype.previousSibling/nextSibling, Element.prototype.previousElementSibling
