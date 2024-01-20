@@ -186,3 +186,68 @@ console.log(document.getElementById('foo').firstChild);
 ### 6) 형제 노드 탐색
 
 - Node.prototype.previousSibling/nextSibling, Element.prototype.previousElementSibling
+
+## 4. 노드 정보 취득
+
+- Node.prototype.nodeType
+    - 노드 객체의 종류. 즉, 노드 타입을 나타내는 상수를 반환
+    - 노드 타입 상수는 `Node`에 정의되어 있음
+    - `Node.ELEMENT_NODE`: 요소 노드 타입을 나타내는 상수 1을 반환
+    - `Node.TEXT_NODE`: 텍스트 노드 타입을 나타내는 상수 3을 반환
+    - `Node.DOCUMENT_NODE`: 문서 노드 타입을 나타내는 상수 9를 반환
+     
+- Node.prototype.nodeName
+    - 노드의 이름을 문자열로 반환
+    - 요소 노드: 대문자 문자열로 태그 이름("UL", "LI" 등)을 반환
+    - 텍스트 노트: 문자열 "#text"를 반환
+    - 문서 노드: 문자열 "#document"를 반환
+
+<br>
+
+## 5. 요소 노드의 텍스트 조작
+
+- nodeValue : 참조하면 노드 객체의 값(텍스트 노드의 텍스트)을 반환. 
+ - 텍스트를 변경할 요소 노드를 취득한 다음, 취득한 요소 노드의 텍스트 노드를 탐색한다. 텍스트 노드는 요소 노드의  자식 노드이므로 firstChild 프로퍼티를 사용하여 탐색합니다.
+ - 탐색한 텍스트 노드의 nodeValue 프로퍼티를 사용하여 텍스트 노드의 값을 변경합니다.
+
+- textContent : 참조하면 요소 노드의 콘텐츠 영역(시작 태그와 종료 태그 사이) 내의 텍스트를 모두 반환.
+    - HTML 마크업은 무시되고 따라서 할당할 때 내부의 태그가 사라지고 할당값으로 채워진다.
+
+>❗️ innerText를 사용하지 말아야할 이유
+>1. innerText 프로퍼티는 CSS에 순종적. (visibility:hidden으로 지정된 요소 노드의 텍스트 반환x)
+>2. CSS를 고려해야 하므로 느리다.
+
+
+## 6. DOM 조작
+
+- innerHtml
+    - 요소 노드의 HTML 마크업을 취득하거나 변경합니다.
+    - 참조하면 HTML 마크업이 포함된 문자열을 그대로 반환합니다.
+    - 문자열을 할당하면 요소 노드의 모든 자식 노드가 제거되고 할당한 문자열에 포함되어 있는 HTML 마크업이 파싱되어 요소 노드의 자식 노드로 DOM에 반영됩니다. 이때 사용자로부터 입력받은 데이터를 그대로 innerHTML 프로퍼티에 할당하는 것은 크로스 사이트 스크립팅 공격에 취약하므로 위험합니다.(DOMPurify 같은 세니티제이션 라이브러리 사용)
+ 
+- insertAdjacentHTML
+    - 기존 요소를 제거하지 않으면서 위치를 지정해 새로운 요소를 삽입합니다.
+    - 첫번째 인수 전달 문자열 : beforebegin, afterbegin, beforeend, afterend
+
+  ```html
+      <!DOCTYPE html>
+        <html>
+          <body>
+            <!-- beforebegin -->
+            <div id="foo">
+              <!-- afterbegin -->
+              text
+              <!-- beforeend -->
+            </div>
+            <!-- afterend -->
+          </body>
+          <script>
+            const $foo = document.getElementById('foo');
+        
+            $foo.insertAdjacentHTML('beforebegin', '<p>beforebegin</p>');
+            $foo.insertAdjacentHTML('afterbegin', '<p>afterbegin</p>');
+            $foo.insertAdjacentHTML('beforeend', '<p>beforeend</p>');
+            $foo.insertAdjacentHTML('afterend', '<p>afterend</p>');
+          </script>
+        </html>
+  ```
