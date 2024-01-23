@@ -251,3 +251,63 @@ console.log(document.getElementById('foo').firstChild);
           </script>
         </html>
   ```
+
+### 3) 노드 생성과 추가
+
+DOM은 노드를 직접 생성/삽입/삭제/치환하는 메서드도 제공합니다.    
+
+- Document.prototype.createElement(tagName) 메서드는 요소 노드를 생성하여 반환합니다.
+    - createElement 메서드의 매개변수 tagName에는 태그 이름을 나타내는 문자열을 인수로 전달합니다.
+- Document.prototype.createTextNode(text) 메서드는 텍스트 노드를 생성하여 반환합니다.
+    -  createTextNode 메서드의 매개변수 text에는 텍스트 노드의 값으로 사용할 문자열을 인수로 전달합니다.
+    -  createTextNode 메서드는 텍스트 노드를 생성할 뿐 요소 노드에 추가하지 않습니다.
+-  Node.prototype.appendChild(childNode) 메서드는 매개변수 childNode에게 인수로 전달한 노드를 appendChild 메서드를 호출한 노드의 마지막 자식 노드로 추가합니다.
+
+### 4) 복수의 노드 생성과 추가
+
+- Document.prototype.createDocumentFragement
+ 
+```js
+const $fruits = document.getElementById('fruits');
+
+// 컨테이너 노드 생성 하지 않고
+// DocumentFragment 노드 생성
+const $fragment = document.createDocumentFragment();
+
+[text1, text2, ... ].forEach(text ⇒ {
+
+	// 1. 요소 노드 생성
+	const $li = documentcreateElement(`li`);
+	// 2. 텍스트 노드 생성
+	const textNode = document.createTextNode(text);
+	// 3. 텍스트 노드를 $li 요소 노드의 자식으로 추가
+	$li.appendChild(textNode);
+	// 4. $li 요소 노드를 $DocumentFragment의 마지막 자식 노드로 추가
+	$fragment.appendChild($li);
+});
+
+// 5. DocumentFragment 노드를 $fruits 요소 노드의 마지막 자식 노드로 추가
+$fruits.appendChlild($fragment)
+```
+
+### 5) 노드 삽입
+
+- Node.prototype.appendChild 메서드는 인수로 전달받은 노드를 자신을 호출한 노드의 마지막 자식 노드로 DOM에 추가합니다.
+    - 이때 노드를 추가할 위치를 지정할 수 없고 언제나 마지막 자식 노드로 추가합니다.
+- Node.prototype.insertBefore(newNode, childNode) 메서드는 첫 번째 인수로 전달받은 노드를 두 번째 인수로 전달받은 노드 앞에 삽입합니다.
+
+### 6) 노드 이동
+
+- DOM에 이미 존재하는 노드를 appendChild 또는 isertBefore 메서드를 사용하여 DOM에 다시 추가하면 현재 위치에서 노드를 제거하고 새로운 위치에 노드를 추가합니다. (즉, 노드가 이동합니다)
+
+### 7) 노드 복사
+
+- Node.prototype.cloneNode([deep: true | false]) 메서드는 노드의 사본을 생성하여 반환합니다.
+
+### 8) 노드 교체
+
+- Node.protoype.replaceChild(newChild, oldChild) 메서드는 자신을 호출한 노드의 자식 노드를 다른 노드로 교체합니다.
+
+### 9) 노드 삭제
+
+- Node.prototype.removeChild(child) 메서드는 child 매개변수에 인수로 전달한 노드를 DOM에서 삭제합니다.
