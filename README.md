@@ -329,6 +329,23 @@
 
 ---
 
+> **보충**   ( 01 / 29 ~ 02 / 02 )
+
+| DAY 1 ( 월 )           | DAY 2 ( 화 )           | DAY 3 ( 수 )     | DAY 4 ( 목 )                   | DAY 5 ( 금 )   | 
+| :--------------:       | :-------------:       | :----------------: | :----------------:              | :------------:|
+| Math / 에러 처리           | Date           |   RegExp       |  String  | 스프레드 문법    | 
+| 29 / 47       | 30                  |  31      |    32                          | 36  |       
+
+---
+
+> **보충**   ( 02 / 05 ~ 02 / 09 )
+
+| DAY 6 ( 월 )           | DAY 7 ( 화 )           | DAY 8 ( 수 )     | DAY 9 ( 목 )    | DAY 10 ( 금 )   | DAY 11 ( 토 )   | 
+| :--------------:       | :-------------:       | :----------------: | :----------------:              | :------------:| :------------:|
+| 타이머            | REST API           |   프로미스       |  프로미스  |  제너레이터와 async/await    | 제너레이터와 async/await|
+| 41       | 44                  |  45.1 ~ 45.3      |    45.4 ~ 45. 8 | 46.1 ~ 46.4  | 46.5 ~ 46.6 |      
+
+
 [rsymbol]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/33_7%EB%B2%88%EC%A7%B8%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%83%80%EC%9E%85%20Symbol
 [r이터러블]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/34_%EC%9D%B4%ED%84%B0%EB%9F%AC%EB%B8%94
 [r스프레드문법]: https://github.com/Next-by-Next/Javascript-Deep-Dive-Study/tree/main/docs/35_%EC%8A%A4%ED%94%84%EB%A0%88%EB%93%9C%20%EB%AC%B8%EB%B2%95
